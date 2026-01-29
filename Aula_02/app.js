@@ -94,7 +94,7 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                 entradaDeDados.question("Digite a nota4: ", function(valor4) {
                     let nota4 = valor4
 
-                    // Validação de entrada vazia utilizando o OU -> OR -> ||   \\
+                    // Validação de entrada vazia utilizando o OU -> OR -> ||   
                     if(nomeAluno == "" || nota1 == "" || nota2 == "" || nota3 == "" || nota4 == ""){
                         console.log("ERRO: Existem campos obrigatorios que não foram preenchidos !!!")
 
@@ -105,22 +105,36 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                     // Validação caso o número seja menor que 0
                     }else if(nota1 < 0 || nota2 < 0 || nota3 < 0 || nota4 < 0){
                         console.log("ERRO: número menor que 0")
+                    
+                    // Validação para evitar que entre letras na hora de digitar as notas
+                    // isNaN -> verifica se o que está sendo usado é uma letra, caso seja uma letra
+                    // irá aparecer "true" e caso seja um número irá aparecer um "false"
+                    }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
+                        console.log("ERRO: Somente números são permitidos na entrada das notas")
                     }else{
                         console.log("calcular")
+
                     }
+                    
+
 
                     /*
-                    // Validação de entrada vazia utilizando o E -> AND -> &&   \\
+                    // Validação de entrada vazia utilizando o E -> AND -> &&   
                     if(nomeAluno != "" && nota1 != "" && nota2 != "" && nota3 != "" && nota4 != ""){
                         console.log("Calcular")
                     }else{
                         console.log("Erro")
                     }
-                    
                     */
-                })
-            })
-        })
-    })
-})
+               
+                 }) // fecha a nota 4
+
+            }) // fecha a nota 3
+
+        }) // fecha a nota 2
+
+    }) // fecha a nota 1
+
+}) // fecha o nome
+
 
