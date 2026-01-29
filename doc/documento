@@ -1,12 +1,14 @@
-- Como saber se a versão do meu aplicativo é diferente da versão 1.0
-- O 1.0 é quando estamos seguindo os requisitos funcionais que combinamos com o nosso cliente.
-- Quando ela passa a ser a versão 1.1, é por que fizemos uma correção de algum bug ou até mesmo pequenos ajustes no aplicativo.
-- Agora quando ela passa a ser 2.0 é caso o cliente acabe pedindo mais requisitos e precise fazer grandes mudanças.
-- Quando for atualizar a versão, nunca jogue fora a versão anterio, sempre crie um backup dela e deixe salva.
+ 
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Como saber se a versão do meu aplicativo é diferente da versão 1.0
+ O 1.0 é quando estamos seguindo os requisitos funcionais que combinamos com o nosso cliente.
+ Quando ela passa a ser a versão 1.1, é por que fizemos uma correção de algum bug ou até mesmo pequenos ajustes no aplicativo.
+ Agora quando ela passa a ser 2.0 é caso o cliente acabe pedindo mais requisitos e precise fazer grandes mudanças.
+ Quando for atualizar a versão, nunca jogue fora a versão anterio, sempre crie um backup dela e deixe salva.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
----
-- O que significa a versão 1.15.1.26? (número meramente ilustrativo).
-- O 1 é o número da versão, o .15 é a release , o outro .1 é o mês que foi atualizado e o .26 é o ano que foi atualizado, assim se juntar todos fica 1.15.1.26.
-- Claro, nem sempre isso é uma ordem, pode ser que os números depois do 1.15... significam outras informações.
----
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ O que significa a versão 1.15.1.26? (número meramente ilustrativo).
+ O 1 é o número da versão o .15 é a release , o outro .1 é o mês que foi atualizado e o .26 é o ano que foi atualizado, assim se juntar todos fica 1.15.1.26.
+ Claro, nem sempre isso é uma ordem, pode ser que os números depois do 1.15... significam outras informações.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------

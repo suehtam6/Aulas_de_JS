@@ -39,13 +39,17 @@ entradaDeDados.question("Digite o seu nome: ", function(nomeUsuario){
 
 // Permite a entrada de dados do email do usuário
     entradaDeDados.question("Digite o seu email: ", function(emailUsuario){
-        console.log(`O email do usuário ${nomeUsuario} é ${emailUsuario}`)
+        console.log(`O email do usuário ${nomeUsuario} é ${emailUsuario}`)    
+        
+            // Permite a entrada de dados do número do usuário
+            entradaDeDados.question("Digite o seu número: ", function(numeroUsuario){
+                console.log("O número do " + nomeUsuario + " é " + numeroUsuario)
     })
 
-// Permite a entrada de dados do número do usuário
-    entradaDeDados.question("Digite o seu número: ", function(numeroUsuario){
-        console.log("O número do " + nomeUsuario + " é " + numeroUsuario)
+
     })
+
+
 
 })
 
