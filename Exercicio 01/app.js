@@ -16,46 +16,78 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
-entradaDeDados.question("Digite o nome do cliente: ", function(cliente){
-    let nomeCliente = cliente 
+entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
+    let nomeCliente = cliente
 
-    entradaDeDados.question("Qual o produto que foi comprado: ", function(produto){
+    entradaDeDados.question("Qual o produto que foi comprado: ", function (produto) {
         let nomeProduto = produto
 
-        entradaDeDados.question("Qual o valor da compra: ", function(compra){
+        entradaDeDados.question("Qual o valor da compra: ", function (compra) {
             let valorCompra = compra
 
-            entradaDeDados.question("Qual o valor do Juros: ", function(juros){
+            entradaDeDados.question("Qual o valor do Juros: ", function (juros) {
                 let jurosComposto = juros
 
-                entradaDeDados.question("Em quantos meses será pago o produto: ", function(meses){
-                    let parcelasMeses = meses
+                entradaDeDados.question("Será pago em meses ou anos: ", function (situação) {
 
-                    if(nomeCliente == "" || nomeProduto == "" || valorCompra == "" || jurosComposto == "" || parcelasMeses == ""){
-                        console.log("ERRO: CAMPOS OBRIGATÓRIOS")
-                    }else if(valorCompra < 0 || jurosComposto < 0 || parcelasMeses < 0){
-                        console.log("ERRO: NÚMERO INFERIOR A 0")
-                    }else if(isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasMeses)){
-                        console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
-                    }else{
-                        let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto)/100)) ** Number(parcelasMeses))
-                        let acrescimo = Number(valor) - Number(valorCompra)
+                    if (situação == "meses") {
 
-                        console.log(valor)
-                        console.log(acrescimo)
-                        
-                        console.log(`\n******************* Viva Moda *******************
-                            \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
-                            \nA compra do produto ${nomeProduto}, tem um valor de: ${valorCompra}.
-                            \nA sua compra será parcelada em ${parcelasMeses} vezes e o Sr(a) pagará: ${valor.toFixed(2)}
-                            \nO acréscimo realizado ao valor de: ${valorCompra} será de ${acrescimo.toFixed(2)}..
-                            \nMuito obrigado por escolher a Viva Moda.
-                            \n**********************************************************`)
+                        entradaDeDados.question("Quantos meses será necessario: ", function (meses) {
+                            let parcelasMeses = meses
+                            if (nomeCliente == "" || nomeProduto == "" || valorCompra == "" || jurosComposto == "" || parcelasMeses == "") {
+                                console.log("ERRO: CAMPOS OBRIGATÓRIOS")
+                            } else if (valorCompra < 0 || jurosComposto < 0 || parcelasMeses < 0) {
+                                console.log("ERRO: NÚMERO INFERIOR A 0")
+                            } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasMeses)) {
+                                console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
+                            } else {
+                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** Number(parcelasMeses))
+                                let acrescimo = Number(valor) - Number(valorCompra)
+
+                                console.log(`\n******************* Viva Moda *******************
+                                    \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
+                                    \nA compra do produto ${nomeProduto}, tem um valor de: ${valorCompra}.
+                                    \nA sua compra será parcelada em ${parcelasMeses} vezes e o Sr(a) pagará: ${valor.toFixed(2)}
+                                    \nO acréscimo realizado ao valor de: ${valorCompra} será de ${acrescimo.toFixed(2)}..
+                                    \nMuito obrigado por escolher a Viva Moda.
+                                    \n**********************************************************`)
+                            }
+                        })
+
+                    } else if(situação == "anos") {
+                    
+                        entradaDeDados.question("Quantos anos será necessario: ", function (anos) {
+                            let parcelasEmAnos = anos
+                            if (nomeCliente == "" || nomeProduto == "" || valorCompra == "" || jurosComposto == "" || parcelasEmAnos == "") {
+                                console.log("ERRO: CAMPOS OBRIGATÓRIOS")
+                            } else if (valorCompra < 0 || jurosComposto < 0 || parcelasEmAnos < 0) {
+                                console.log("ERRO: NÚMERO INFERIOR A 0")
+                            } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasEmAnos)) {
+                                console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
+                            } else {
+                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** (Number(parcelasEmAnos) * 12))
+                                let acrescimo = Number(valor) - Number(valorCompra)
+
+                                console.log(`\n******************* Viva Moda *******************
+                                    \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
+                                    \nA compra do produto ${nomeProduto}, tem um valor de: ${valorCompra}.
+                                    \nA sua compra será parcelada em ${parcelasEmAnos} vezes e o Sr(a) pagará: ${valor.toFixed(2)}
+                                    \nO acréscimo realizado ao valor de: ${valorCompra} será de ${acrescimo.toFixed(2)}..
+                                    \nMuito obrigado por escolher a Viva Moda.
+                                    \n**********************************************************`)
+
+                            }
+
+                        })
+
+
                     }
+
+
+
                 }) // fecha meses
             }) // fecha juros
         }) // fecha valor da compra
     }) // fecha produto
 }) // fecha cliente
 
- 
