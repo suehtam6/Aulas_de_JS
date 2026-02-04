@@ -80,7 +80,6 @@
 */
 
 // Import da biblioteca readline
-const { stat } = require("fs")
 const readline = require("readline")
 
 // Criação do objeto para captar as entradas de dados
