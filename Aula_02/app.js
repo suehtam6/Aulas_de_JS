@@ -80,6 +80,7 @@
 */
 
 // Import da biblioteca readline
+const { stat } = require("fs")
 const readline = require("readline")
 
 // Criação do objeto para captar as entradas de dados
@@ -134,28 +135,23 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                         } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
                             console.log("ERRO: Somente números são permitidos na entrada das notas")
                         } else {
+                            let statusAluno
                             let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
                             // toFixed() é um método que permite fixar a qtde de casas decimais
-                            console.log(`A média do  aluno ${nomeAluno} na aula de ${nomeMateria} é ${media.toFixed(2)}`)
+
+                            // Validação do status do aluno
                             if (media <= 49.99) {
-                                console.log(`O ${nomeAluno} foi REPROVADO`)
+                               statusAluno = "REPROVADO"
                             } else if (media <= 69.99) {
-                                console.log(`O ${nomeAluno} ficou de RECUPERAÇÃO`)
+                                statusAluno = "RECUPERAÇÃO"
                             } else {
-                                console.log(`O ${nomeAluno} foi APROVADO!!`)
+                                statusAluno = "APROVADO!!"
+
                             }
-
+                            //Exibir  boletim do aluno
+                            console.log("")
+                            console.log(`\nA média do  aluno ${nomeAluno} na aula de ${nomeMateria} é ${media.toFixed(2)}, seu status de aprovação é: ${statusAluno}\n\n==========================\n    FIM DA CALCULADORA    \n==========================`)
                         }
-
-
-                        /*
-                        // Validação de entrada vazia utilizando o E -> AND -> &&   
-                        if(nomeAluno != "" && nota1 != "" && nota2 != "" && nota3 != "" && nota4 != ""){
-                            console.log("Calcular")
-                        }else{
-                            console.log("Erro")
-                        }
-                        */
 
 
                     }) // fecha a nota 4
