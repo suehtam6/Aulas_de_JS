@@ -97,71 +97,76 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
     // Recebe o nome do aluno
     let nomeAluno = nome
 
-    // Entrada de dados da nota 1
-    entradaDeDados.question("Digite a nota 1: ", function(valor1) {
-        let nota1 = valor1
+    entradaDeDados.question("Digite o nome da matéria: ", function (aula) {
+        let nomeMateria = aula
 
-        // Entrada de dados da nota 2
-        entradaDeDados.question("Digite a nota 2: ", function(valor2) {
-            let nota2 = valor2
+        // Entrada de dados da nota 1
+        entradaDeDados.question("Digite a nota 1: ", function (valor1) {
+            let nota1 = valor1
 
-            // Entrada de dados da nota 3
-            entradaDeDados.question("Digite a nota 3: ", function(valor3) {
-                let nota3 = valor3
+            // Entrada de dados da nota 2
+            entradaDeDados.question("Digite a nota 2: ", function (valor2) {
+                let nota2 = valor2
 
-                // Entrada de dados da nota 4
-                entradaDeDados.question("Digite a nota 4: ", function(valor4) {
-                    let nota4 = valor4
+                // Entrada de dados da nota 3
+                entradaDeDados.question("Digite a nota 3: ", function (valor3) {
+                    let nota3 = valor3
 
-                    // Validação de entrada vazia utilizando o OU -> OR -> ||   
-                    if(nomeAluno == "" || nota1 == "" || nota2 == "" || nota3 == "" || nota4 == ""){
-                        console.log("ERRO: Existem campos obrigatorios que não foram preenchidos !!!")
+                    // Entrada de dados da nota 4
+                    entradaDeDados.question("Digite a nota 4: ", function (valor4) {
+                        let nota4 = valor4
 
-                    // Validação caso o número seja maior que 100 
-                    }else if(nota1 > 100 || nota2 > 100 || nota3 > 100 || nota4 > 100){
-                        console.log("ERRO: Número maior que 100")
+                        // Validação de entrada vazia utilizando o OU -> OR -> ||   
+                        if (nomeAluno == "" || nota1 == "" || nota2 == "" || nota3 == "" || nota4 == "" || nomeMateria == "") {
+                            console.log("ERRO: Existem campos obrigatorios que não foram preenchidos !!!")
 
-                    // Validação caso o número seja menor que 0
-                    }else if(nota1 < 0 || nota2 < 0 || nota3 < 0 || nota4 < 0){
-                        console.log("ERRO: número menor que 0")
-                    
-                    // Validação para evitar que entre letras na hora de digitar as notas
-                    // isNaN -> verifica se o que está sendo usado é uma letra, caso seja uma letra
-                    // irá aparecer "true" e caso seja um número irá aparecer um "false"
-                    }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
-                        console.log("ERRO: Somente números são permitidos na entrada das notas")
-                    }else{
-                        let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4))/4
-                        // toFixed() é um método que permite fixar a qtde de casas decimais
-                        console.log(`A média do  aluno ${nomeAluno} é ${media.toFixed(2)}`)
-                        if(media <= 49.99){
-                            console.log(`O ${nomeAluno} foi REPROVADO`)
-                        }else if(media <= 69.99){
-                            console.log(`O ${nomeAluno} ficou de RECUPERAÇÃO`)
-                        }else{
-                            console.log(`O ${nomeAluno} foi APROVADO!!`)
+                            // Validação caso o número seja maior que 100 
+                        } else if (nota1 > 100 || nota2 > 100 || nota3 > 100 || nota4 > 100) {
+                            console.log("ERRO: Número maior que 100")
+
+                            // Validação caso o número seja menor que 0
+                        } else if (nota1 < 0 || nota2 < 0 || nota3 < 0 || nota4 < 0) {
+                            console.log("ERRO: número menor que 0")
+
+                            // Validação para evitar que entre letras na hora de digitar as notas
+                            // isNaN -> verifica se o que está sendo usado é uma letra, caso seja uma letra
+                            // irá aparecer "true" e caso seja um número irá aparecer um "false"
+                        } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
+                            console.log("ERRO: Somente números são permitidos na entrada das notas")
+                        } else {
+                            let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+                            // toFixed() é um método que permite fixar a qtde de casas decimais
+                            console.log(`A média do  aluno ${nomeAluno} na aula de ${nomeMateria} é ${media.toFixed(2)}`)
+                            if (media <= 49.99) {
+                                console.log(`O ${nomeAluno} foi REPROVADO`)
+                            } else if (media <= 69.99) {
+                                console.log(`O ${nomeAluno} ficou de RECUPERAÇÃO`)
+                            } else {
+                                console.log(`O ${nomeAluno} foi APROVADO!!`)
+                            }
+
                         }
-                        
-                    }
-                    
 
-                    /*
-                    // Validação de entrada vazia utilizando o E -> AND -> &&   
-                    if(nomeAluno != "" && nota1 != "" && nota2 != "" && nota3 != "" && nota4 != ""){
-                        console.log("Calcular")
-                    }else{
-                        console.log("Erro")
-                    }
-                    */
-                   
-               
-                 }) // fecha a nota 4
 
-            }) // fecha a nota 3
+                        /*
+                        // Validação de entrada vazia utilizando o E -> AND -> &&   
+                        if(nomeAluno != "" && nota1 != "" && nota2 != "" && nota3 != "" && nota4 != ""){
+                            console.log("Calcular")
+                        }else{
+                            console.log("Erro")
+                        }
+                        */
 
-        }) // fecha a nota 2
 
-    }) // fecha a nota 1
+                    }) // fecha a nota 4
+
+                }) // fecha a nota 3
+
+            }) // fecha a nota 2
+
+        }) // fecha a nota 1
+
+    }) // fecha matéria
 
 }) // fecha o nome
 
