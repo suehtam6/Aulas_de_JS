@@ -135,11 +135,11 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                         // toFixed() é um método que permite fixar a qtde de casas decimais
                         console.log(`A média do  aluno ${nomeAluno} é ${media.toFixed(2)}`)
                         if(media <= 49.99){
-                            console.log("REPROVADO")
+                            console.log(`O ${nomeAluno} foi REPROVADO`)
                         }else if(media <= 69.99){
-                            console.log("RECUPERAÇÃO")
+                            console.log(`O ${nomeAluno} ficou de RECUPERAÇÃO`)
                         }else{
-                            console.log("APROVADO!!!")
+                            console.log(`O ${nomeAluno} foi APROVADO!!`)
                         }
                         
                     }
