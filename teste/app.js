@@ -41,11 +41,8 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasMeses)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
                             } else {
-                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) * Number(parcelasMeses))
+                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** Number(parcelasMeses))
                                 let acrescimo = Number(valor) - Number(valorCompra)
-
-                                console.log(valor)
-                                console.log(acrescimo)
 
                                 console.log(`\n******************* Viva Moda *******************
                                     \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
@@ -68,11 +65,8 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasEmAnos)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
                             } else {
-                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) * (Number(parcelasEmAnos) * 12))
+                                let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** (Number(parcelasEmAnos) * 12))
                                 let acrescimo = Number(valor) - Number(valorCompra)
-
-                                console.log(valor)
-                                console.log(acrescimo)
 
                                 console.log(`\n******************* Viva Moda *******************
                                     \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
