@@ -60,8 +60,23 @@
     Tipos de operadores lógicos
         E -> AND -> &&
         OU -> OR -> ||
-        NAO -> NOT -> !
+        NAO -> NOT -> ! 
+    .
+    
+    Formas de conversão de tipos de dados.
+    Formas antigas, e pouco usadas, mas pode haver trabalhos que tem eles
+    parseInt() -> Permite converter um conteúdo em um número do tipo Inteiro.
+    parseFloat() -> Permite converter um conteúdo em um número do tipo decimal.
 
+    Formas mais novas e usadas em bastante projetos.
+    Number() -> Permite converter um conteúdo para NÚMERO, podendo ser inteiro ou decimal.
+    String() -> Permite converter um conteúdo para STRING.
+    Boolean() -> Permite converter um conteúdo para BOOLEANO (true ou false)
+
+    typeof() -> Retorna o tipo de dados de uma variavel (String, Number, Boolean ou Object).
+
+    
+    
 */
 
 // Import da biblioteca readline
@@ -72,6 +87,10 @@ const entradaDeDados = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
+
+console.log("==========================")
+console.log("   CALCULADORA DE MÉDIA   ")
+console.log("==========================")
 
 // Entrada de dados do nome
 entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
@@ -91,7 +110,7 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                 let nota3 = valor3
 
                 // Entrada de dados da nota 4
-                entradaDeDados.question("Digite a nota4: ", function(valor4) {
+                entradaDeDados.question("Digite a nota 4: ", function(valor4) {
                     let nota4 = valor4
 
                     // Validação de entrada vazia utilizando o OU -> OR -> ||   
@@ -112,11 +131,19 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                     }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
                         console.log("ERRO: Somente números são permitidos na entrada das notas")
                     }else{
-                        console.log("calcular")
-
+                        let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4))/4
+                        // toFixed() é um método que permite fixar a qtde de casas decimais
+                        console.log(`A média do  aluno ${nomeAluno} é ${media.toFixed(2)}`)
+                        if(media <= 49.99){
+                            console.log("REPROVADO")
+                        }else if(media <= 69.99){
+                            console.log("RECUPERAÇÃO")
+                        }else{
+                            console.log("APROVADO!!!")
+                        }
+                        
                     }
                     
-
 
                     /*
                     // Validação de entrada vazia utilizando o E -> AND -> &&   
@@ -126,6 +153,7 @@ entradaDeDados.question("Digite o nome do aluno: ", function (nome) {
                         console.log("Erro")
                     }
                     */
+                   
                
                  }) // fecha a nota 4
 
