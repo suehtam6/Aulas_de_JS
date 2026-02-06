@@ -30,7 +30,7 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
 
                 entradaDeDados.question("Será pago em meses ou anos: ", function (situação) {
 
-                    if (situação == "meses") {
+                    if (situação == "meses" || situação == "Meses") {
 
                         entradaDeDados.question("Quantos meses será necessario: ", function (meses) {
                             let parcelasMeses = meses
@@ -44,17 +44,18 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** Number(parcelasMeses))
                                 let acrescimo = Number(valor) - Number(valorCompra)
 
-                                console.log(`\n******************* Viva Moda *******************
+                                console.log(`
+                                    \n************************* Viva Moda ***************************
                                     \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
                                     \nA compra do produto ${nomeProduto}, tem um valor de: ${valorCompra}.
                                     \nA sua compra será parcelada em ${parcelasMeses} vezes e o Sr(a) pagará: ${valor.toFixed(2)}
-                                    \nO acréscimo realizado ao valor de: ${valorCompra} será de ${acrescimo.toFixed(2)}..
+                                    \nO acréscimo realizado ao valor de: R$${valorCompra} será de R$${acrescimo.toFixed(2)}..
                                     \nMuito obrigado por escolher a Viva Moda.
-                                    \n**********************************************************`)
+                                    \n***************************************************************`)
                             }
                         })
 
-                    } else if(situação == "anos") {
+                    } else if(situação == "anos" || situação == "Anos") {
                     
                         entradaDeDados.question("Quantos anos será necessario: ", function (anos) {
                             let parcelasEmAnos = anos
@@ -64,17 +65,18 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 console.log("ERRO: NÚMERO INFERIOR A 0")
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasEmAnos)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
-                            } else {
+                            }else{
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** (Number(parcelasEmAnos) * 12))
                                 let acrescimo = Number(valor) - Number(valorCompra)
 
-                                console.log(`\n******************* Viva Moda *******************
+                                console.log(`
+                                    \n************************* Viva Moda ***************************
                                     \nMuito obrigado por realizar a sua compra conosco Sr(a)${nomeCliente}.
                                     \nA compra do produto ${nomeProduto}, tem um valor de: ${valorCompra}.
-                                    \nA sua compra será parcelada em ${parcelasEmAnos} vezes e o Sr(a) pagará: ${valor.toFixed(2)}
-                                    \nO acréscimo realizado ao valor de: ${valorCompra} será de ${acrescimo.toFixed(2)}..
+                                    \nA sua compra será parcelada em ${parcelasEmAnos} anos e o Sr(a) pagará: ${valor.toFixed(2)}
+                                    \nO acréscimo realizado ao valor de: R$${valorCompra} será de R$${acrescimo.toFixed(2)}..
                                     \nMuito obrigado por escolher a Viva Moda.
-                                    \n**********************************************************`)
+                                    \n***************************************************************`)
 
                             }
 
