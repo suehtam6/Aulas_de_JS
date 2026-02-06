@@ -16,6 +16,8 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
+const semNumero = /\d/
+
 entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
     let nomeCliente = cliente
 
@@ -40,7 +42,7 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 console.log("ERRO: NÚMERO INFERIOR A 0")
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasMeses)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
-                            } else if(isNaN(nomeCliente) == false){
+                            } else if(semNumero.test(nomeCliente)){
                                 console.log("ERRO:SÓ É PERMITIDO LETRAS NO NOME DO USÚARIO ")
                             }else {
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** Number(parcelasMeses))
@@ -58,7 +60,9 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                         })
 
                     } else if(situação == "anos" || situação == "Anos") {
-                    
+                        
+                        
+
                         entradaDeDados.question("Quantos anos será necessario: ", function (anos) {
                             let parcelasEmAnos = anos
                             if (nomeCliente == "" || nomeProduto == "" || valorCompra == "" || jurosComposto == "" || parcelasEmAnos == "") {
@@ -67,7 +71,7 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 console.log("ERRO: NÚMERO INFERIOR A 0")
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasEmAnos)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
-                            }else if(isNaN(nomeCliente) == false){
+                            }else if(semNumero.test(nomeCliente) || semNumero){
                                 console.log("ERRO:SÓ É PERMITIDO LETRAS NO NOME DO USÚARIO ")
                             }else{
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** (Number(parcelasEmAnos) * 12))
@@ -81,19 +85,12 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                     \nO acréscimo realizado ao valor de: R$${valorCompra} será de R$${acrescimo.toFixed(2)}..
                                     \nMuito obrigado por escolher a Viva Moda.
                                     \n***************************************************************`)
-
                             }
-
+                            entradaDeDados.close()
                         })
-
-
                     }
-
-
-
                 }) // fecha meses
             }) // fecha juros
         }) // fecha valor da compra
     }) // fecha produto
 }) // fecha cliente
-
