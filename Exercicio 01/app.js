@@ -40,7 +40,9 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 console.log("ERRO: NÚMERO INFERIOR A 0")
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasMeses)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
-                            } else {
+                            } else if(isNaN(nomeCliente) == false){
+                                console.log("ERRO:SÓ É PERMITIDO LETRAS NO NOME DO USÚARIO ")
+                            }else {
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** Number(parcelasMeses))
                                 let acrescimo = Number(valor) - Number(valorCompra)
 
@@ -65,6 +67,8 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                 console.log("ERRO: NÚMERO INFERIOR A 0")
                             } else if (isNaN(valorCompra) || isNaN(jurosComposto) || isNaN(parcelasEmAnos)) {
                                 console.log("ERRO: LETRAS NÃO SÃO PERMITIDAS")
+                            }else if(isNaN(nomeCliente) == false){
+                                console.log("ERRO:SÓ É PERMITIDO LETRAS NO NOME DO USÚARIO ")
                             }else{
                                 let valor = Number(valorCompra) * ((Number(1) + (Number(jurosComposto) / 100)) ** (Number(parcelasEmAnos) * 12))
                                 let acrescimo = Number(valor) - Number(valorCompra)
