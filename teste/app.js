@@ -24,10 +24,10 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
     entradaDeDados.question("Qual o produto que foi comprado: ", function (produto) {
         let nomeProduto = produto
 
-        entradaDeDados.question("Qual a quantidade do produto?", function(qtde){
+        entradaDeDados.question("Qual a quantidade do produto: ", function(qtde){
             let quantidadeDeProduto = qtde
 
-            entradaDeDados.question("Qual o valor da compra: ", function (compra) {
+            entradaDeDados.question("Qual o valor do produto: ", function (compra) {
                 let valorCompra = compra
     
                 entradaDeDados.question("Qual o valor do Juros: ", function (juros) {
@@ -37,7 +37,7 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
     
                     entradaDeDados.question("Será pago em meses ou anos: ", function (situação) {
     
-                        if (situação == "meses" || situação == "Meses") {
+                        if (situação == "meses" || situação == "Meses" || situação == "Mes" || situação == "Mês" || situação == "mes" || situação == "mês") {
     
                             entradaDeDados.question("Quantos meses será necessario: ", function (meses) {
                                 let parcelasMeses = meses
@@ -63,9 +63,10 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                         \nMuito obrigado por escolher a Viva Moda.
                                         \n***************************************************************`)
                                 }
+                                entradaDeDados.close()
                             })
     
-                        } else if(situação == "anos" || situação == "Anos") {
+                        } else if(situação == "anos" || situação == "Anos" || situação == "Ano" || situação == "ano") {
                             
                             
     
@@ -93,7 +94,10 @@ entradaDeDados.question("Digite o nome do cliente: ", function (cliente) {
                                         \n***************************************************************`)
                                 }
                                 entradaDeDados.close()
+                                
                             })
+
+
                         } // fecha anos
                     }) // fecha meses
                 }) // fecha juros
