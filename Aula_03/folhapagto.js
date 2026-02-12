@@ -17,16 +17,30 @@ entradaDeDados.question("Digite o nome do funcionario: ", function(funcionario){
     entradaDeDados.question("Digite o cpf do funcionario: ", function(cpf){
         let numeroCpf = cpf
 
-        entradaDeDados.question("Qual o cargo do funcionario(junior, pleno, senior): ", function(cargo){
-            let cargoFuncionario = cargo
+        entradaDeDados.question("Quantos dias que o funcionario faltou: ", function(faltas){
+            let faltasFuncionarios = faltas
 
-            if(cargoFuncionario == "junior"){
+            entradaDeDados.question("Qual o cargo do funcionario(junior, pleno, senior): ", function(cargo){
+                let cargoFuncionario = cargo
+    
+                if(cargoFuncionario == "junior"){
+                    let salarioBase = 3000
+                    let descontoFaltas = 100 * Number(faltasFuncionarios)
+                    let valor = Number(salarioBase) - Number(descontoFaltas)
 
-            }else if(cargoFuncionario == "pleno"){
+                }else if(cargoFuncionario == "pleno"){
+                    let salarioBase = 6000
+                    let descontoFaltas = 200 * Number(faltasFuncionarios)
+                    let valor = Number(salarioBase) - Number(descontoFaltas)
 
-            }else{
-                
-            }
-        }) // fecha cargo
+                }else{
+                    let salarioBase = 10000
+                    let descontoFaltas = 250 * Number(faltasFuncionarios)
+                    let valor = Number(salarioBase) - Number(descontoFaltas)
+                    
+                }
+
+            }) // fecha cargo
+        })// fecha faltas
     }) // fecha cpf
 }) // fecha funcionario
