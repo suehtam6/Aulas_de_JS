@@ -11,6 +11,8 @@
  //Importando biblioteca readline
 const readline = require("readline")
 
+
+
 //Criando objeto de entrada de dados
 const entradaDeDados = readline.createInterface({
     input: process.stdin,

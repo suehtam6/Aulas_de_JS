@@ -11,3 +11,10 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
+entradaDeDados.question("Digite o nome do funcionario: ", function(funcionario){
+    let nomeFuncionario = funcionario
+
+    entradaDeDados.question("Digite o cpf do funcionario: ", function(cpf){
+
+    }) // fecha cpf
+}) // fecha funcionario
