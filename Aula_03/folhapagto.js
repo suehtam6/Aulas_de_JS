@@ -15,6 +15,18 @@ entradaDeDados.question("Digite o nome do funcionario: ", function(funcionario){
     let nomeFuncionario = funcionario
 
     entradaDeDados.question("Digite o cpf do funcionario: ", function(cpf){
+        let numeroCpf = cpf
 
+        entradaDeDados.question("Qual o cargo do funcionario(junior, pleno, senior): ", function(cargo){
+            let cargoFuncionario = cargo
+
+            if(cargoFuncionario == "junior"){
+
+            }else if(cargoFuncionario == "pleno"){
+
+            }else{
+                
+            }
+        }) // fecha cargo
     }) // fecha cpf
 }) // fecha funcionario
