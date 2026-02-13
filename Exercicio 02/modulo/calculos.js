@@ -10,13 +10,13 @@ function calcularOperacao(operacao, n1, n2){
     if(entradaOperacao == "SOMA" || entradaOperacao == "soma" || entradaOperacao == "Soma"){
         resultado = Number(n1Entrada) + Number(n2Entrada)
 
-    }else if(entradaOperacao == "SUBTRAÇÃO" || entradaOperacao == "subtração"){
+    }else if(entradaOperacao == "SUBTRAÇÃO" || entradaOperacao == "subtração" || entradaOperacao == "Subtração"){
         resultado = Number(n1Entrada) - Number(n2Entrada)
 
-    }else if(entradaOperacao == "MULTIPLICAÇÃO" || entradaOperacao == "multiplicação"){
+    }else if(entradaOperacao == "MULTIPLICAÇÃO" || entradaOperacao == "multiplicação" || entradaOperacao == "Multiplicação" || entradaOperacao == "multiplicacao"){
         resultado = Number(n1Entrada) * Number(n2Entrada)
 
-    }else if(entradaOperacao == "DIVISÃO" || entradaOperacao == "divisão"){
+    }else if(entradaOperacao == "DIVISÃO" || entradaOperacao == "divisão" || entradaOperacao == "divisao" || entradaOperacao == "Divisao"){
         if(n1 == 0 || n2 == 0){
             return false
            
