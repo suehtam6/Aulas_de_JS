@@ -41,7 +41,7 @@ entradaDeDados.question("Digite o nome do funcionario: ", function (funcionario)
                             console.log("ERRO: ALGUMA INFORMAÇÃO ESTÁ INCORRETA")
                         }
                     }else{
-                        console.log("ERRO: CAMPO FALTANDO")
+                        console.log("ERRO: INFORMAÇÕES INCORRETAS OU FALTANDO")
                     }
 
 
