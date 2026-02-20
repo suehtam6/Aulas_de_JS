@@ -4,12 +4,12 @@ function validarDados(operacao, valor1, valor2){
     let v1 = valor1
     let v2 = valor2
 
-    if(nomeOperacao == "" ||isNaN(nomeOperacao) == false|| v1 == "" || v2 == ""){
+    if(nomeOperacao == "" ||!isNaN(nomeOperacao) == false|| v1 == "" || v2 == "" || isNaN(v1)|| isNaN(v2)){
         return false
-    }else if(isNaN(v1)|| isNaN(v2)){
-        return false
+    }else {
+        return true
     }
-    return true
+    
 }
 
 module.exports = {
