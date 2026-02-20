@@ -12,45 +12,43 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
-entradaDeDados.question("Digite o nome do funcionario: ", function(funcionario){
+entradaDeDados.question("Digite o nome do funcionario: ", function (funcionario) {
     let nomeFuncionario = funcionario
 
-    entradaDeDados.question("Digite o cpf do funcionario: ", function(cpf){
+    entradaDeDados.question("Digite o cpf do funcionario: ", function (cpf) {
         let numeroCpf = cpf
 
-        entradaDeDados.question("Quantos dias que o funcionario faltou: ", function(faltas){
-            let faltasFuncionarios = faltas
+        entradaDeDados.question("Qual o cargo do funcionario(junior, pleno, senior): ", function (cargo) {
+            let cargoFuncionario = cargo
 
-            entradaDeDados.question("Qual o cargo do funcionario(junior, pleno, senior): ", function(cargo){
-                let cargoFuncionario = cargo
+            entradaDeDados.question("Quantos dias que o funcionario faltou: ", function (faltas) {
+                let faltasFuncionarios = faltas
 
-                // Validações
-                if(numeroCpf == "" || isNaN(numeroCpf) || faltasFuncionarios == "" || isNaN(faltasFuncionarios)){
-                    console.log("ERRO: SOMENTE NÚMEROS SÃO PERMITIDOS")
-                }else{
-                    // Sálarios de funcionarios
-                    if(cargoFuncionario == "junior"){
-                        let salarioBase = 3000
-                        let descontoFaltas = 100 * Number(faltasFuncionarios)
-                        let valor = Number(salarioBase) - Number(descontoFaltas)
-                        console.log(valor)
-    
-                    }else if(cargoFuncionario == "pleno"){
-                        let salarioBase = 6000
-                        let descontoFaltas = 200 * Number(faltasFuncionarios)
-                        let valor = Number(salarioBase) - Number(descontoFaltas)
-                        console.log(valor)
-    
+                entradaDeDados.question("Horas extras realizadas: ", function (hora) {
+                    let horaExtra = hora
+
+
+                    let calculo = require("./modulo/calculo")
+                    let validacao = require("./modulo/validar")
+                    let validado = validacao.validarDados(nomeFuncionario, numeroCpf, cargoFuncionario, faltasFuncionarios, horaExtra)
+
+                    if (validado) {
+                        let resultado = calculo.calcularExtra(nomeFuncionario, cargoFuncionario, numeroCpf, faltasFuncionarios, horaExtra)
+                        if (resultado) {
+                            console.log(resultado)
+                            entradaDeDados.close()
+                        } else {
+                            console.log("ERRO: ALGUMA INFORMAÇÃO ESTÁ INCORRETA")
+                        }
                     }else{
-                        let salarioBase = 10000
-                        let descontoFaltas = 250 * Number(faltasFuncionarios)
-                        let valor = Number(salarioBase) - Number(descontoFaltas)
-                        console.log(valor)
+                        console.log("ERRO: CAMPO FALTANDO")
                     }
-                }
 
 
-            }) // fecha cargo
-        })// fecha faltas
+
+
+                }) // fecha hora extra
+            }) // fecha faltas
+        })// fecha cargo
     }) // fecha cpf
 }) // fecha funcionario
