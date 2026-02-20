@@ -1,8 +1,9 @@
 function calcularOperacao(operacao, n1, n2){
 
     let entradaOperacao = operacao
-    let n1Entrada = n1.replace(/,/g, ".")
-    let n2Entrada = n2.replace(/,/g, ".")
+    //ReplaceAll serve para mudar as virgulas por pontos
+    let n1Entrada = n1
+    let n2Entrada = n2
     let resultado
 
     
@@ -17,7 +18,7 @@ function calcularOperacao(operacao, n1, n2){
         resultado = Number(n1Entrada) * Number(n2Entrada)
 
     }else if(entradaOperacao == "DIVISÃO" || entradaOperacao == "divisão" || entradaOperacao == "divisao" || entradaOperacao == "Divisao"){
-        if(n1 == 0 || n2 == 0){
+        if(n1Entrada <= 0 || n2Entrada <= 0){
             return false
            
         }else{

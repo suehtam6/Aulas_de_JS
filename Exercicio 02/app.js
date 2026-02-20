@@ -6,7 +6,7 @@
  *************************************************************************************
  */
 
- // Import da biblioteca readline
+// Import da biblioteca readline
 const readline = require("readline")
 
 // Criação do objeto para captar as entradas de dados
@@ -19,30 +19,33 @@ const entradaDeDados = readline.createInterface({
 const calculo = require("./modulo/calculos")
 const validacao = require("./modulo/validacao")
 
-entradaDeDados.question("Qual operação você gostaria de utilizar?(SOMA, SUBTRAÇÃO, MULTIPLICAÇÃO e DIVISÃO): ", function(operacao){
+entradaDeDados.question("Qual operação você gostaria de utilizar?(SOMA, SUBTRAÇÃO, MULTIPLICAÇÃO e DIVISÃO): ", function (operacao) {
     let valorOperacao = operacao
 
-    entradaDeDados.question(`Qual o primeiro número da ${valorOperacao}: `, function(valor1){
-        let primeiroNumero = valor1
-        
-        entradaDeDados.question(`Qual o segundo número da ${valorOperacao}: `, function(valor2){
-            let segundoNumero = valor2
+    entradaDeDados.question(`Qual o primeiro número da ${valorOperacao}: `, function (valor1) {
+
+        // O ReplaceAll(',', '.') serve para trocar todas virgulas por pontos.
+        let primeiroNumero = valor1.replaceAll(',', '.')
+
+        entradaDeDados.question(`Qual o segundo número da ${valorOperacao}: `, function (valor2) {
+
+        // O ReplaceAll(',', '.') serve para trocar todas virgulas por pontos.
+            let segundoNumero = valor2.replaceAll(',', '.')
 
             let resultadoValidado = validacao.validarDados(operacao, primeiroNumero, segundoNumero)
 
-            if(resultadoValidado){
+            if (resultadoValidado) {
                 let resultado = calculo.calcularOperacao(operacao, primeiroNumero, segundoNumero)
-            if(resultado){
-                console.log(`O resultado foi ${resultado}`)
-            }else{
-                console.log("ERRO: O NÚMERO 0 NÃO PODE SER O PRIMEIRO NÚMERO")
-            }
-            entradaDeDados.close()
-            }else{
+                if (resultado) {
+                    console.log(`O resultado foi ${resultado}`)
+                } else {
+                    console.log("ERRO: O NÚMERO 0 NÃO PODE SER O PRIMEIRO NÚMERO")
+                }
+                entradaDeDados.close()
+            } else {
                 console.log("ERRO: DIGITOU ALGUMA INFORMAÇÃO ERRADA")
             }
-   
+
         })
     })
 })
-
