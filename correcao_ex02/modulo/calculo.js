@@ -57,5 +57,9 @@ const multiplicar = (numero1, numero2) => Number(numero1) * Number(numero2)
 const dividir = (numero1, numero2) => Number(numero1) / Number(numero2)
 
 module.exports = {
-    calcular
+    calcular,
+    multiplicar,
+    somar,
+    subtrair,
+    dividir
 }
