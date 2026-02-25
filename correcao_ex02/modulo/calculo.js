@@ -56,13 +56,6 @@ const subtrair = (numero1, numero2) => Number(numero1) - Number(numero2)
 const multiplicar = (numero1, numero2) => Number(numero1) * Number(numero2)
 const dividir = (numero1, numero2) => Number(numero1) / Number(numero2)
 
-
-// chamando a função para testar
-let result = calcular(23.5, 60, 'multiplicar')
-console.log(result)
-// if(result){
-//     console.log(result)
-// }else{
-//     console.log('ERRO')
-// }
-
+module.exports = {
+    calcular
+}
