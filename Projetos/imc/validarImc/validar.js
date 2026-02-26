@@ -5,10 +5,32 @@
  * versão: 1.0
  **************************************************************************/
 
-const validarDados = function validandoDados(peso, altura, nome){
+const validarDadosString = function validandoStrings(nome, item){
     let nomeUsuario = String(nome) 
-    let pesoUsuario = Number(peso)
-    let alturaUsuario = Number(altura)
+    let items       = String(item)
 
-    if(){}
+if(nomeUsuario == "" || !isNaN(nomeUsuario) || items == "" || !isNaN(items)){
+    return false
+    }else{
+        return true
+    }
+
+
+}
+
+const validandoDadosNumeros = function validarNumeros(numero1, numero2){
+    let valor1 = Number(numero1)
+    let valor2 = Number(numero2)
+    
+    if(isNaN(valor1) || isNaN(valor2) ||
+        valor1 == "" || valor2 == ""){
+        return false
+    }else{
+        return true
+    }
+}
+
+module.exports = {
+    validarDadosString,
+    validandoDadosNumeros
 }

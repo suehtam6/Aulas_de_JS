@@ -11,8 +11,9 @@ const calcular = function imc(peso, altura, nome) {
     let nomeUsuario = String(nome).toUpperCase()
     let imc
     let status
+    let alturaMetros = nAltura / 100.0 
 
-    imc = nPeso / (nAltura * nAltura)
+    imc = nPeso / (alturaMetros * alturaMetros)
 
     if (imc <= 18.4) {
         status = `O imc do ${nomeUsuario} é ${imc.toFixed(2)} e ele está ABAIXO DO PESO`

@@ -1,3 +1,4 @@
+
 /********************************************************************************
  * Objetivo: Arquivo responsavel SOMENTE pela coleta de dados de entrada e saída
  * Autor: Matheus Lucas
@@ -6,12 +7,14 @@
  *******************************************************************************/
 
 const readline = require("readline")
-const calcularImc = require("./moduloImc/CalculoImc")
 const entradaDeDados = readline.createInterface({
 
     input: process.stdin,
     output: process.stdout
 })
+
+const calcularImc = require("../modulo/CalculoImc")
+const validarImc = require("../validarDados/validarImc")
 
 entradaDeDados.question("Digite o nome do usúario: ", function(nome){
     let nomeUsuario = nome
@@ -22,7 +25,19 @@ entradaDeDados.question("Digite o nome do usúario: ", function(nome){
         entradaDeDados.question("Digite a altura do usúario: ", function(altura){
             let alturaUsuario = altura
 
-            let resultado = calcularImc.calcular(pesoUsuario, alturaUsuario, nomeUsuario)
+            let resultado
+
+            let validandoDadosString = validarImc.validarDadosString(nome)
+            if(validandoDadosString){
+                let validandoDadosNumeros = validarImc.validandoDadosNumeros(peso, altura)
+                if(validandoDadosNumeros){
+                    resultado = calcularImc.calcular(pesoUsuario, alturaUsuario, nomeUsuario)
+                }else{
+                    console.log("ERRO: VALIDAÇÃO DOS NÚMEROS INVALIDA")
+                }
+            }else{
+                console.log("ERRO: VALIDAÇÃO DO NOME INVALIDO")
+            }
 
             console.log(resultado)
             entradaDeDados.close()
