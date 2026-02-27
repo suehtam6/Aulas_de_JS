@@ -14,7 +14,7 @@ const entradaDeDados = readline.createInterface({
 })
 
 const calcularImc = require("./moduloImc/CalculoImc")
-const validarImc = require("./validacao/validar")
+const validarImc = require("../validacao/validar")
 
 entradaDeDados.question("Digite o nome do usúario: ", function(nome){
     let nomeUsuario = nome
