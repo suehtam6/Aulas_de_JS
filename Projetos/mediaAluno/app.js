@@ -14,7 +14,7 @@ const entradaDeDados = readline.createInterface({
 })
 
 const calcularMedia = require("./modulo/calcularMedia")
-const { log } = require("console")
+const validarDados = require("../validacao/validar")
 
 entradaDeDados.question("Digite o nome do aluno(a): ", function (nomeA) {
     let nomeAluno = nomeA
@@ -46,37 +46,50 @@ entradaDeDados.question("Digite o nome do aluno(a): ", function (nomeA) {
                                     entradaDeDados.question("Digite a nota 4: ", function (nota4) {
                                         let valor4 = nota4
 
-                                        let resultadoMedia = calcularMedia.calcularMedia(valor1, valor2, valor3, valor4)
-                                        if (resultadoMedia >= 70) {
-                                            let formalario = calcularMedia.formulario(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, nota1, nota2, nota3, nota4)
-                                            console.log(formalario)
+                                        let resultadoMedia
+                                        let validarCincoNumeros = validarDados.validarDadosCincoNumeros(valor1, valor2, valor3, valor4, resultadoMedia)
+                                        let validarDadosString = validarDados.validarSeisStrings(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina)
 
-                                        } else if (resultadoMedia < 70) {
-                                            entradaDeDados.question("Digite a nota do EXAME: ",function(exame) {
 
-                                                let notaExame = exame
-                                                let resultadoExame = calcularMedia.calcularExame(resultadoMedia, notaExame)
+                                        if (validarDadosString) {
+                                            if (validarCincoNumeros) {
+                                                resultadoMedia = calcularMedia.calcularMedia(valor1, valor2, valor3, valor4)
+                                                if (resultadoMedia >= 70) {
+                                                    let formalario = calcularMedia.formulario(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, nota1, nota2, nota3, nota4)
+                                                    console.log(formalario)
 
-                                                if (resultadoExame >= 60) {
+                                                } else if (resultadoMedia < 70) {
+                                                    entradaDeDados.question("Digite a nota do EXAME: ", function (exame) {
 
-                                                    let formularioParaExame = calcularMedia.formularioExame(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, notaExame, nota1, nota2, nota3, nota4, resultadoExame)
-                                                    console.log(formularioParaExame)
+                                                        let notaExame = exame
+                                                        let resultadoExame = calcularMedia.calcularExame(resultadoMedia, notaExame)
+
+                                                        if (resultadoExame >= 60) {
+
+                                                            let formularioParaExame = calcularMedia.formularioExame(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, notaExame, nota1, nota2, nota3, nota4, resultadoExame)
+                                                            console.log(formularioParaExame)
+                                                            entradaDeDados.close()
+
+                                                        } else {
+                                                            console.log("ERRO: ALGUMA INFORMAÇÃO DO FORMULARIO EXAME ESTÁ INCORRETA")
+                                                            entradaDeDados.close()
+                                                        }
+                                                    })
+                                                } else if (resultadoMedia <= 50) {
+                                                    console.log("REPROVADO!!")
                                                     entradaDeDados.close()
-
-                                                }else{
-                                                    console.log("ERRO: ALGUMA INFORMAÇÃO DO FORMULARIO EXAME ESTÁ INCORRETA")
+                                                } else {
+                                                    console, log("ERRO: ERRO NO CALCULO")
                                                     entradaDeDados.close()
                                                 }
 
-                                            })
-                                        }else if(resultadoMedia <= 50){
-                                            console.log("REPROVADO!!")
-                                            entradaDeDados.close()
-                                        }else{
-                                            console,log("ERRO: ERRO NO CALCULO")
-                                            entradaDeDados.close()
-                                        }
+                                            }else{
+                                                console.log("ERRO: VALIDAÇÃO DOS NÚMEROS FALHOU")
+                                            }
 
+                                        } else {
+                                            console.log("ERRO: VALIDAÇÃO DAS STRINGS FALHOU")
+                                        }
 
                                     }) // fecha nota4
                                 }) // fecha nota 3

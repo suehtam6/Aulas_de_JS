@@ -5,32 +5,67 @@
  * versão: 1.0
  **************************************************************************/
 
-const validarDadosString = function validandoStrings(nome, item){
-    let nomeUsuario = String(nome) 
-    let items       = String(item)
+const validarDadosString = function validandoStrings(nome, item) {
+    let nomeUsuario = String(nome)
+    let items = String(item)
 
-if(nomeUsuario == "" || !isNaN(nomeUsuario) || items == "" || !isNaN(items)){
-    return false
-    }else{
+    if (nomeUsuario == "" || !isNaN(nomeUsuario) || items == "" || !isNaN(items)) {
+        return false
+    } else {
         return true
     }
 
 
 }
 
-const validandoDadosNumeros = function validarNumeros(numero1, numero2){
+const validandoDadosNumeros = function validarNumeros(numero1, numero2) {
     let valor1 = Number(numero1)
     let valor2 = Number(numero2)
-    
-    if(isNaN(valor1) || isNaN(valor2) ||
-        valor1 == "" || valor2 == ""){
+
+    if (isNaN(valor1) || isNaN(valor2) ||
+        valor1 == "" || valor2 == "") {
         return false
+    } else {
+        return true
+    }
+}
+
+const validarSeisStrings = function validarSeis(string1, string2, string3, string4, string5, string6) {
+    let nomeUsuario = string1
+    let nomeProfessor = string2
+    let sexoAluno = string3
+    let sexoProfessor = string4
+    let curso = string5
+    let disciplina = string6
+
+    if (nomeUsuario == "" || isNaN(nomeUsuario)  || nomeProfessor == "" || isNaN(nomeProfessor) 
+        || sexoAluno == "" || isNaN(sexoAluno) || sexoProfessor || isNaN(sexoProfessor)  ||
+        curso == "" || isNaN(curso)  || disciplina == "" || isNaN(disciplina) ) {
+        return false
+    } else {
+        return true
+    }
+}
+
+const validarDadosCincoNumeros = function numeros(numero1, numero2, numero3, numero4, numero5){
+    let valor1 = numero1
+    let valor2 = numero2
+    let valor3 = numero3
+    let valor4 = numero4
+    let valor5 = numero5
+
+    if(valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" || valor5 == ""||
+        isNaN(valor1)|| isNaN(valor2) || isNaN(valor3) || isNaN(valor4) || isNaN(valor5)){
+            return false
     }else{
         return true
     }
+            
 }
 
 module.exports = {
     validarDadosString,
-    validandoDadosNumeros
+    validandoDadosNumeros,
+    validarSeisStrings, 
+    validarDadosCincoNumeros
 }
