@@ -13,8 +13,8 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 
-const calcularImc = require("../modulo/CalculoImc")
-const validarImc = require("../validarDados/validarImc")
+const calcularImc = require("./moduloImc/CalculoImc")
+const validarImc = require("./validacao/validar")
 
 entradaDeDados.question("Digite o nome do usúario: ", function(nome){
     let nomeUsuario = nome
@@ -23,7 +23,7 @@ entradaDeDados.question("Digite o nome do usúario: ", function(nome){
         let pesoUsuario = peso
 
         entradaDeDados.question("Digite a altura do usúario: ", function(altura){
-            let alturaUsuario = altura
+            let alturaUsuario = altura.replaceAll('.', '')
 
             let resultado
 
