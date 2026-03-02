@@ -38,6 +38,7 @@ const formulario = function Imprimir(nomeA, nomeP, sexoA, sexoP, curso, discipli
                  Professor: ${nomeProfessor}
                  Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}
                  Média Final: ${mediaFinal}`
+
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "FEMININO"){
         status = `
                  A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
@@ -45,6 +46,7 @@ const formulario = function Imprimir(nomeA, nomeP, sexoA, sexoP, curso, discipli
                  Professora: ${nomeProfessor}
                  Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
                  Média Final: ${mediaFinal}`
+
     }else if(sexoAluno == "MASCULINO" && sexoProfessor == "FEMININO"){
         status = `
                  O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
@@ -52,6 +54,7 @@ const formulario = function Imprimir(nomeA, nomeP, sexoA, sexoP, curso, discipli
                  Professora: ${nomeProfessor}
                  Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
                  Média Final: ${mediaFinal}`
+
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "MASCULINO"){
         status = `
                  A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
@@ -70,7 +73,7 @@ const calcularExame = function exame(media, exame){
     let notaMedia = Number(media)
     let resultado
 
-    resultado = notaExame + notaMedia/Number(2)
+    resultado = (notaExame + notaMedia)/Number(2)
     return resultado.toFixed(2)
 
 }
@@ -99,7 +102,7 @@ const formularioExame = function ImprimirExame(nomeA, nomeP, sexoA, sexoP, curso
                  Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
                  Média Final: ${mediaFinal}
                  Média final do Exame: ${exame}`
-    }else if(sexoAluno == "FEMININA" && sexoProfessor == "FEMININA"){
+    }else if(sexoAluno == "FEMININO" && sexoProfessor == "FEMININO"){
         status = `
                  A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
                  Curso: ${nomeCurso}
@@ -107,7 +110,7 @@ const formularioExame = function ImprimirExame(nomeA, nomeP, sexoA, sexoP, curso
                  Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
                  Média Final: ${mediaFinal}
                  Média final do Exame: ${exame}`
-    }else if(sexoAluno == "MASCULINO" && sexoProfessor == "FEMININA"){
+    }else if(sexoAluno == "MASCULINO" && sexoProfessor == "FEMININO"){
         status = `
                  O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
                  Curso: ${nomeCurso}
@@ -115,7 +118,7 @@ const formularioExame = function ImprimirExame(nomeA, nomeP, sexoA, sexoP, curso
                  Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
                  Média Final: ${mediaFinal}
                  Média final do Exame: ${exame}`
-    }else if(sexoAluno == "FEMININA" && sexoProfessor == "MASCULINO"){
+    }else if(sexoAluno == "FEMININO" && sexoProfessor == "MASCULINO"){
         status = `
                  A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
                  Curso: ${nomeCurso}

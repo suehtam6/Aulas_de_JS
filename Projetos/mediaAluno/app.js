@@ -46,35 +46,45 @@ entradaDeDados.question("Digite o nome do aluno(a): ", function (nomeA) {
                                     entradaDeDados.question("Digite a nota 4: ", function (nota4) {
                                         let valor4 = nota4
 
-                                        let resultadoMedia
-                                        let validarCincoNumeros = validarDados.validarDadosCincoNumeros(valor1, valor2, valor3, valor4, resultadoMedia)
+
+                                        let validarCincoNumeros = validarDados.validarDadosCincoNumeros(valor1, valor2, valor3, valor4)
                                         let validarDadosString = validarDados.validarSeisStrings(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina)
 
 
                                         if (validarDadosString) {
                                             if (validarCincoNumeros) {
-                                                resultadoMedia = calcularMedia.calcularMedia(valor1, valor2, valor3, valor4)
+                                                let resultadoMedia = calcularMedia.calcularMedia(valor1, valor2, valor3, valor4)
                                                 if (resultadoMedia >= 70) {
                                                     let formalario = calcularMedia.formulario(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, nota1, nota2, nota3, nota4)
                                                     console.log(formalario)
 
                                                 } else if (resultadoMedia < 70) {
+
+                                                    //ENTRADA DE DADOS DO EXAME
                                                     entradaDeDados.question("Digite a nota do EXAME: ", function (exame) {
 
                                                         let notaExame = exame
-                                                        let resultadoExame = calcularMedia.calcularExame(resultadoMedia, notaExame)
+                                                        let teste = validarDados.validandoDadosNumeros(resultadoMedia)
+                                                        if (!teste) {
+                                                            let resultadoExame = calcularMedia.calcularExame(resultadoMedia, notaExame)
 
-                                                        if (resultadoExame >= 60) {
+                                                            if (resultadoExame >= 60) {
 
-                                                            let formularioParaExame = calcularMedia.formularioExame(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, notaExame, nota1, nota2, nota3, nota4, resultadoExame)
-                                                            console.log(formularioParaExame)
-                                                            entradaDeDados.close()
+                                                                let formularioParaExame = calcularMedia.formularioExame(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, notaExame, nota1, nota2, nota3, nota4, resultadoExame)
+                                                                console.log(formularioParaExame)
+                                                                entradaDeDados.close()
 
+                                                            } else {
+                                                                console.log("ERRO: ALGUMA INFORMAÇÃO DO FORMULARIO EXAME ESTÁ INCORRETA")
+                                                                entradaDeDados.close()
+                                                            }
                                                         } else {
-                                                            console.log("ERRO: ALGUMA INFORMAÇÃO DO FORMULARIO EXAME ESTÁ INCORRETA")
-                                                            entradaDeDados.close()
+                                                            console.log("ERRO: TESTE")
                                                         }
-                                                    })
+
+                                                    }) // FECHA ENTRADA DE DADOS DO EXAME
+
+
                                                 } else if (resultadoMedia <= 50) {
                                                     console.log("REPROVADO!!")
                                                     entradaDeDados.close()
@@ -83,7 +93,7 @@ entradaDeDados.question("Digite o nome do aluno(a): ", function (nomeA) {
                                                     entradaDeDados.close()
                                                 }
 
-                                            }else{
+                                            } else {
                                                 console.log("ERRO: VALIDAÇÃO DOS NÚMEROS FALHOU")
                                             }
 

@@ -38,9 +38,9 @@ const validarSeisStrings = function validarSeis(string1, string2, string3, strin
     let curso = string5
     let disciplina = string6
 
-    if (nomeUsuario == "" || isNaN(nomeUsuario)  || nomeProfessor == "" || isNaN(nomeProfessor) 
-        || sexoAluno == "" || isNaN(sexoAluno) || sexoProfessor || isNaN(sexoProfessor)  ||
-        curso == "" || isNaN(curso)  || disciplina == "" || isNaN(disciplina) ) {
+    if (nomeUsuario == "" || !isNaN(nomeUsuario)  || nomeProfessor == "" || !isNaN(nomeProfessor) 
+        || sexoAluno == "" || !isNaN(sexoAluno) || sexoProfessor == "" || !isNaN(sexoProfessor)  ||
+        curso == "" || !isNaN(curso)  || disciplina == "" || !isNaN(disciplina) ) {
         return false
     } else {
         return true
@@ -55,7 +55,7 @@ const validarDadosCincoNumeros = function numeros(numero1, numero2, numero3, num
     let valor5 = numero5
 
     if(valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" || valor5 == ""||
-        isNaN(valor1)|| isNaN(valor2) || isNaN(valor3) || isNaN(valor4) || isNaN(valor5)){
+        isNaN(valor1)|| isNaN(valor2) || isNaN(valor3) || isNaN(valor4) ){
             return false
     }else{
         return true
@@ -63,9 +63,23 @@ const validarDadosCincoNumeros = function numeros(numero1, numero2, numero3, num
             
 }
 
+const validarDadosNumero = function numeros(numero1){
+    let valor1 = numero1
+
+
+    if(valor1 == "" || isNaN(numero1) ){
+            return false
+    }else{
+        return true
+    }
+            
+}
+
+
 module.exports = {
     validarDadosString,
     validandoDadosNumeros,
     validarSeisStrings, 
-    validarDadosCincoNumeros
+    validarDadosCincoNumeros,
+    validarDadosNumero
 }
