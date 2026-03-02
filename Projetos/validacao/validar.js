@@ -38,48 +38,61 @@ const validarSeisStrings = function validarSeis(string1, string2, string3, strin
     let curso = string5
     let disciplina = string6
 
-    if (nomeUsuario == "" || !isNaN(nomeUsuario)  || nomeProfessor == "" || !isNaN(nomeProfessor) 
-        || sexoAluno == "" || !isNaN(sexoAluno) || sexoProfessor == "" || !isNaN(sexoProfessor)  ||
-        curso == "" || !isNaN(curso)  || disciplina == "" || !isNaN(disciplina) ) {
+    if (nomeUsuario == "" || !isNaN(nomeUsuario) || nomeProfessor == "" || !isNaN(nomeProfessor)
+        || sexoAluno == "" || !isNaN(sexoAluno) || sexoProfessor == "" || !isNaN(sexoProfessor) ||
+        curso == "" || !isNaN(curso) || disciplina == "" || !isNaN(disciplina)) {
         return false
     } else {
         return true
     }
 }
 
-const validarDadosCincoNumeros = function numeros(numero1, numero2, numero3, numero4, numero5){
+const validarDadosQuatroNumeros = function numeros(numero1, numero2, numero3, numero4) {
     let valor1 = numero1
     let valor2 = numero2
     let valor3 = numero3
     let valor4 = numero4
-    let valor5 = numero5
 
-    if(valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" || valor5 == ""||
-        isNaN(valor1)|| isNaN(valor2) || isNaN(valor3) || isNaN(valor4) ){
-            return false
-    }else{
+    if (valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" || valor5 == "" ||
+        isNaN(valor1) || isNaN(valor2) || isNaN(valor3) || isNaN(valor4)) {
+        return false
+    } else {
         return true
     }
-            
+
 }
 
-const validarDadosNumero = function numeros(numero1){
+const validarDadosNumero = function numeros(numero1) {
     let valor1 = numero1
 
 
-    if(valor1 == "" || isNaN(numero1) ){
-            return false
-    }else{
+    if (valor1 == "" || isNaN(numero1)) {
+        return false
+    } else {
         return true
     }
-            
+
+}
+
+const validarTabuada = function numeros(multiplicando, multiplicador) {
+    let numeroMultiplicando = Number(multiplicando)
+    let numeroMultiplicador = Number(multiplicador)
+
+    if (numeroMultiplicador == "" || isNaN(numeroMultiplicador) || numeroMultiplicando == "" || isNaN(numeroMultiplicando)
+        || numeroMultiplicando < 2 || numeroMultiplicador < 2) {
+        return false
+    } else {
+        return true
+    }
+
 }
 
 
 module.exports = {
     validarDadosString,
     validandoDadosNumeros,
-    validarSeisStrings, 
-    validarDadosCincoNumeros,
-    validarDadosNumero
+    validarSeisStrings,
+    validarDadosQuatroNumeros,
+    validarDadosNumero,
+    validarTabuada
 }
