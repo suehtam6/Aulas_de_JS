@@ -16,7 +16,8 @@ const gerarTabuada = function (multiplicando, multiplicador) {
     while (cont <= numeroMultiplicador) {
         result = numeroMultiplicando * cont
         
-        resultado += `${numeroMultiplicando} X ${cont} = ${result}\n`
+        resultado += `\nTabuada do [${multiplicando}]
+                        \n${numeroMultiplicando} X ${cont} = ${result}\n`
 
         cont++
     }

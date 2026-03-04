@@ -79,7 +79,7 @@ const validarTabuada = function numeros(multiplicando, multiplicador) {
     let numeroMultiplicador = Number(multiplicador)
 
     if (numeroMultiplicador == "" || isNaN(numeroMultiplicador) || numeroMultiplicando == "" || isNaN(numeroMultiplicando)
-        || numeroMultiplicando < 2 || numeroMultiplicador < 2) {
+        || numeroMultiplicando < 2 || numeroMultiplicador < 2 || numeroMultiplicando > 100 || numeroMultiplicador > 50) {
         return false
     } else {
         return true
@@ -87,6 +87,20 @@ const validarTabuada = function numeros(multiplicando, multiplicador) {
 
 }
 
+const validarDadosFatorial = function numeros(numero1) {
+    let valor1 = numero1
+    let proibido = [',' , '.']
+    
+
+    if (valor1 == "" || isNaN(numero1) || valor1 < 2) {
+        return false
+    } else if(proibido.some(tirar => valor1.includes(tirar))){
+        return false
+    }else {
+        return true
+    }
+
+}
 
 module.exports = {
     validarDadosString,
@@ -94,5 +108,6 @@ module.exports = {
     validarSeisStrings,
     validarDadosQuatroNumeros,
     validarDadosNumero,
-    validarTabuada
+    validarTabuada,
+    validarDadosFatorial
 }

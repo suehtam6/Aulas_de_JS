@@ -18,7 +18,7 @@ const calcular = function imc(peso, altura, nome) {
     if (imc <= 18.4) {
         status = `O imc do ${nomeUsuario} é ${imc.toFixed(2)} e ele está ABAIXO DO PESO`
 
-    } else if (imc <= 24.5) {
+    } else if (imc <= 24.9) {
         status = `O imc do ${nomeUsuario} é ${imc.toFixed(2)} e ele está com o PESO NORMAL`
 
     } else if (imc <= 29.9) {
