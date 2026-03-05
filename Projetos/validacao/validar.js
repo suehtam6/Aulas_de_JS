@@ -102,6 +102,24 @@ const validarDadosFatorial = function numeros(numero1) {
 
 }
 
+const validarImparPar = function imparPar(inicial, final){
+    
+    let numeroInicial = Number(inicial.replace(",", "."))
+    let numeroFinal = Number(final.replace(",", "."))
+    console.log(numeroFinal)
+    console.log(numeroInicial)
+    let proibido = [',' , '.']
+
+    if(numeroInicial < 0 || numeroInicial > 500 || isNaN(numeroInicial) ||
+    numeroFinal < 100 || numeroFinal > 1000 || isNaN(numeroFinal) ||
+    numeroInicial == numeroFinal || numeroInicial % 1 != 0 || numeroFinal % 1 != 0){
+        return false
+    }else{
+        return true
+    }
+
+}
+
 module.exports = {
     validarDadosString,
     validandoDadosNumeros,
@@ -109,5 +127,6 @@ module.exports = {
     validarDadosQuatroNumeros,
     validarDadosNumero,
     validarTabuada,
-    validarDadosFatorial
+    validarDadosFatorial,
+    validarImparPar
 }
