@@ -12,12 +12,14 @@ const gerarTabuada = function (multiplicando, multiplicador) {
     let cont = 0
     let result
     let resultado = ""
-
+    console.log(`
+===============================
+        Tabuada do [${multiplicando}]
+===============================`)
     while (cont <= numeroMultiplicador) {
         result = numeroMultiplicando * cont
         
-        resultado += `\nTabuada do [${multiplicando}]
-                        \n${numeroMultiplicando} X ${cont} = ${result}\n`
+        resultado += `${numeroMultiplicando} X ${cont} = ${result}\n`
 
         cont++
     }

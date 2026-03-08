@@ -33,35 +33,43 @@ const formulario = function Imprimir(nomeA, nomeP, sexoA, sexoP, curso, discipli
 
     if(sexoAluno == "MASCULINO" && sexoProfessor == "MASCULINO"){
        status = `
-                 O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professor: ${nomeProfessor}
-                 Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}
-                 Média Final: ${mediaFinal}`
+=======================================================================
+O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professor: ${nomeProfessor}
+Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}
+Média Final: ${mediaFinal}
+=======================================================================`
 
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "FEMININO"){
         status = `
-                 A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professora: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
-                 Média Final: ${mediaFinal}`
+=======================================================================
+A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professora: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
+Média Final: ${mediaFinal}
+=======================================================================`
 
     }else if(sexoAluno == "MASCULINO" && sexoProfessor == "FEMININO"){
         status = `
-                 O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professora: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
-                 Média Final: ${mediaFinal}`
-
+=======================================================================
+O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professora: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}
+Média Final: ${mediaFinal}
+=======================================================================`
+                
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "MASCULINO"){
         status = `
-                 A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professor: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, 
-                 Média Final: ${mediaFinal}`
+=======================================================================
+A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professor: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, 
+Média Final: ${mediaFinal}
+=======================================================================`
     }
     return status
 
@@ -96,36 +104,44 @@ const formularioExame = function ImprimirExame(nomeA, nomeP, sexoA, sexoP, curso
 
     if(sexoAluno == "MASCULINO" && sexoProfessor == "MASCULINO"){
        status = `
-                 O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professor: ${nomeProfessor}
-                 Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
-                 Média Final: ${mediaFinal}
-                 Média final do Exame: ${exame}`
+=======================================================================
+O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professor: ${nomeProfessor}
+Notas do aluno: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
+Média Final: ${mediaFinal}
+Média final do Exame: ${exame}
+=======================================================================`
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "FEMININO"){
         status = `
-                 A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professora: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
-                 Média Final: ${mediaFinal}
-                 Média final do Exame: ${exame}`
+=======================================================================
+A aluna ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professora: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
+Média Final: ${mediaFinal}
+Média final do Exame: ${exame}
+=======================================================================`
     }else if(sexoAluno == "MASCULINO" && sexoProfessor == "FEMININO"){
         status = `
-                 O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professora: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
-                 Média Final: ${mediaFinal}
-                 Média final do Exame: ${exame}`
+=======================================================================
+O aluno ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professora: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
+Média Final: ${mediaFinal}
+Média final do Exame: ${exame}
+=======================================================================`
     }else if(sexoAluno == "FEMININO" && sexoProfessor == "MASCULINO"){
         status = `
-                 A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
-                 Curso: ${nomeCurso}
-                 Professor: ${nomeProfessor}
-                 Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
-                 Média Final: ${mediaFinal}
-                 Média final do Exame: ${exame}`
+=======================================================================
+A aluna: ${nomeAluno} foi [aprovado] na disciplina ${materia}.
+Curso: ${nomeCurso}
+Professor: ${nomeProfessor}
+Notas da aluna: ${v1}, ${v2}, ${v3}, ${v4}, ${notaExame}
+Média Final: ${mediaFinal}
+Média final do Exame: ${exame}
+=======================================================================`
     }
     return status
 

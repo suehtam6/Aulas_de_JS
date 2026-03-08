@@ -43,30 +43,36 @@ const iniciarApp = function (entradaDeDados) {
                                             let validarQuatroNumeros = validarDados.validarDadosQuatroNumeros(valor1, valor2, valor3, valor4)
                                             let validarDadosString = validarDados.validarSeisStrings(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina)
 
+                                            // validar dados String
                                             if (validarDadosString) {
 
+                                                // validar dados de número
                                                 if (validarQuatroNumeros) {
 
                                                     let resultadoMedia = calcularMedia.calcularMedia(valor1, valor2, valor3, valor4)
 
+                                                    // verificando resultado, por que caso seja menor 70, ele vai ser mandado para o exame
                                                     if (resultadoMedia >= 70) {
 
                                                         let formalario = calcularMedia.formulario(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, nota1, nota2, nota3, nota4)
 
                                                         console.log(formalario)
+                                                        entradaDeDados.close()
 
                                                     } else if (resultadoMedia < 70) {
-
+                                                        console.log("Que pena, você ficou de exame")
                                                         entradaDeDados.question("Digite a nota do EXAME: ", function (exame) {
 
                                                             let notaExame = exame
 
                                                             let validandoMedia = validarDados.validandoDadosNumeros(resultadoMedia)
 
+                                                            // validando dados da média
                                                             if (!validandoMedia) {
 
                                                                 let resultadoExame = calcularMedia.calcularExame(resultadoMedia, notaExame)
 
+                                                                // verificando a nota da média
                                                                 if (resultadoExame >= 60) {
 
                                                                     let formularioParaExame = calcularMedia.formularioExame(nomeAluno, nomeProfessor, sexoAluno, sexoProfessor, nomeCurso, disciplina, resultadoMedia, notaExame, nota1, nota2, nota3, nota4, resultadoExame)
