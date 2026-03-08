@@ -53,7 +53,7 @@ const validarDadosQuatroNumeros = function numeros(numero1, numero2, numero3, nu
     let valor3 = numero3
     let valor4 = numero4
 
-    if (valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" || valor5 == "" ||
+    if (valor1 == "" || valor2 == "" || valor3 == "" || valor4 == "" ||
         isNaN(valor1) || isNaN(valor2) || isNaN(valor3) || isNaN(valor4)) {
         return false
     } else {
