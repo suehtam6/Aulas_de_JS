@@ -38,9 +38,10 @@
 */  
 
 // Criando objeto do tipo ARRAY
-const listaDeAlunos = ['José', 'Maria', 'Luiz', 'Antonio', 'Carlos']
+const listaDeAlunos = ['José', 'Maria', 'Luiz', 'Antonio', 'Carlos', 'Maria']
 const listaDeClientes = []
 const listaDeFornecedores = []
+const listaNomeItem = []
 
 const exibirDados = function(){
 
@@ -88,6 +89,8 @@ const exibirDados = function(){
     console.log("\n********* EXEMPLO COM FOR OF ***********")
     for (aluno of listaDeAlunos){
         console.log(`O nome do aluno é ${aluno}`)
+            
+        
     }
     console.log("*****************************************")
     
@@ -95,7 +98,6 @@ const exibirDados = function(){
     console.log("\n********* EXEMPLO COM FOR IN ***********")
     for (aluno in listaDeAlunos){
         console.log(`O nome do aluno é ${aluno}`)
-
     }
     console.log("*****************************************")
 
@@ -113,13 +115,61 @@ const manipularDados = function(){
 
     console.table(listaDeClientes)
 
-    // Premite adicionar novos elementos no ARRAY, sempre no FINAL
+    // Permite adicionar novos elementos no ARRAY, sempre no final
     listaDeFornecedores.push('Antonio')
     listaDeFornecedores.push('Caio')
-    listaDeFornecedores.push('Luiz')
+    listaDeFornecedores.push('Luiz', 'Maria', 'Carlos')
+    console.table(listaDeFornecedores)
 
-    console.log(listaDeFornecedores)
+    // Permite adicionar novos elementos no ARRAY, sempre no inicio
+    // Após adicionar o elemento, ele reorganiza todos os outros itens 
+    listaDeFornecedores.unshift('Roberto' , 'Luciano')
+    console.table(listaDeFornecedores)
+
+    //Permite adicionar novos elementos no ARRAY de acordo com o indice que você adicionou ali
+    listaDeFornecedores.splice(3,0,'Bernardo')
+
+    console.table(listaDeFornecedores)
+
+    //Permite remover um elemento de acordo com a posição de um ARRAY
+    listaDeFornecedores.splice(4,1)
+    console.table(listaDeFornecedores)
+
+    //Permite remover o último elemento do ARRAY
+    listaDeFornecedores.pop()
+
+    //Permite removar o primeiro elemento do ARRAY
+    listaDeFornecedores.shift()
+
+    console.table(listaDeFornecedores)
+
 
 }
 
-manipularDados()
+const removerItem = function(aluno){
+
+
+    //indexOf() -> Retorna o Indice referente ao conteúdo que está sendo pesquisado
+    // listaDeAlunos.splice(listaDeAlunos.indexOf(aluno), 1)
+
+
+    for(cont in listaDeAlunos){
+        if(aluno == listaDeAlunos[cont]){
+            listaDeAlunos.splice(cont,1)
+        }
+    }
+
+    console.table(listaDeAlunos)
+}
+
+const vericarItem = function(aluno){
+
+    //Verifica se o conteúdo existe dentro do ARRAY e retorna TRUE ou False
+    return listaDeAlunos.includes(aluno)
+
+}
+
+console.log(vericarItem('Maria'))
+//exibirDados()
+//removerItem('Maria')
+//manipularDados()
