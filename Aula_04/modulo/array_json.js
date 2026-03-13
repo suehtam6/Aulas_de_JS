@@ -273,11 +273,13 @@ const cadastroDeProdutos = function () {
         console.log(`
 Produto: ${itemProduto.nome}
 Qtde: ${itemProduto.quantidade}
-Valor: ${itemProduto.valor}
-Marca: ${itemProduto.marca}`
+Valor: ${itemProduto.valor}`
         )
         itemProduto.cor.forEach(function(itemCor){
            console.log(`Cor: ${itemCor.cor}`)
+        })
+        itemProduto.marca.forEach(function(itemMarca){
+            console.log(`Marca: ${itemMarca}`)
         })
     })
 
