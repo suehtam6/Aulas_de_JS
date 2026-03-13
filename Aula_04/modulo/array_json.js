@@ -196,21 +196,21 @@ const cadastroDeProdutos = function () {
 
     // Criando um objeto de cor para o cadastro
     let cores = [
-        { 'id': 1, 'cor': 'Branco', 'hexa': '#ffffff' },
-        { 'id': 2, 'cor': 'Preto', 'hexa': "#000000" },
-        { 'id': 3, 'cor': 'Azul', 'hexa': '#0000ff' },
-        { 'id': 4, 'cor': 'Amarelo', 'hexa': '#ffff00' },
-        { 'id': 5, 'cor': 'Rosa', 'hexa': '#ffb5c0' }
+        { 'id': 1, 'cor': 'Branco', 'hexa': '#ffffff' }, //0
+        { 'id': 2, 'cor': 'Preto', 'hexa': "#000000" }, //1
+        { 'id': 3, 'cor': 'Azul', 'hexa': '#0000ff' }, //2
+        { 'id': 4, 'cor': 'Amarelo', 'hexa': '#ffff00' }, //3
+        { 'id': 5, 'cor': 'Rosa', 'hexa': '#ffb5c0' } //4
 
     ] // fecha cor
 
     let marcas = [
-        {'id' : 1, 'marca': 'Logitech',     'telefone' : '011-98761234', 'email' : 'logitech@gmail.com'},
-        {'id' : 2, 'marca': 'Redragon',     'telefone' : '067-12398745', 'email' : 'redragon@gmail.com'},
-        {'id' : 3, 'marca': 'Dell',         'telefone' : '033-43526798', 'email' : 'dell@gmail.com'},
-        {'id' : 4, 'marca': 'AllienWare',   'telefone' : '011-09087421', 'email' : 'allienware@gmail.com'},
-        {'id' : 5, 'marca': 'KBN',          'telefone' : '011-98761234', 'email' : 'kabum@gmail.com'},
-        {'id' : 6, 'marca': 'Rayzer',     'telefone' : '011-98761234', 'email' : 'rayzer@gmail.com'}
+        {'id' : 1, 'marca': 'Logitech',     'telefone' : '011-98761234', 'email' : 'logitech@gmail.com'}, //0
+        {'id' : 2, 'marca': 'Redragon',     'telefone' : '067-12398745', 'email' : 'redragon@gmail.com'}, //1
+        {'id' : 3, 'marca': 'Dell',         'telefone' : '033-43526798', 'email' : 'dell@gmail.com'}, //2
+        {'id' : 4, 'marca': 'AllienWare',   'telefone' : '011-09087421', 'email' : 'allienware@gmail.com'},//3
+        {'id' : 5, 'marca': 'KBN',          'telefone' : '011-98761234', 'email' : 'kabum@gmail.com'},//4
+        {'id' : 6, 'marca': 'Rayzer',     'telefone' : '011-98761234', 'email' : 'rayzer@gmail.com'}//5
     ] // fecha marca
 
     let produtos = [
@@ -265,25 +265,32 @@ const cadastroDeProdutos = function () {
 
     ] //fecha produto
 
-    
-
-    console.table(produtos)
+    console.log(produtos)
 
     // Exibindo as cores de dentro do produto 'MONITOR//INDICE[0]'
-    produtos[0].cor.forEach(function(itemCor){
-        console.log(itemCor.cor)
-    })
     
+    produtos.forEach(function(itemProduto){
+        console.log(`
+Produto: ${itemProduto.nome}
+Qtde: ${itemProduto.quantidade}
+Valor: ${itemProduto.valor}
+Marca: ${itemProduto.marca}`
+        )
+        itemProduto.cor.forEach(function(itemCor){
+           console.log(`Cor: ${itemCor.cor}`)
+        })
+    })
 
     // Caso você queira buscar um item em especifico que esta dentro do ARRAY[indice].nomeAtributo 
     //console.log(cores[2].cor)
 
     // Colocando somente as cores no terminal
     //cores.forEach(function(itemCor) {
-    //    console.log(itemCor.cor)
+    //   console.log(itemCor.cor)
     //})
 
 }
+
 
 cadastroDeProdutos()
 //manipularDadosJSON()
