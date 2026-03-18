@@ -205,61 +205,64 @@ const cadastroDeProdutos = function () {
     ] // fecha cor
 
     let marcas = [
-        {'id' : 1, 'marca': 'Logitech',     'telefone' : '011-98761234', 'email' : 'logitech@gmail.com'}, //0
-        {'id' : 2, 'marca': 'Redragon',     'telefone' : '067-12398745', 'email' : 'redragon@gmail.com'}, //1
-        {'id' : 3, 'marca': 'Dell',         'telefone' : '033-43526798', 'email' : 'dell@gmail.com'}, //2
-        {'id' : 4, 'marca': 'AllienWare',   'telefone' : '011-09087421', 'email' : 'allienware@gmail.com'},//3
-        {'id' : 5, 'marca': 'KBN',          'telefone' : '011-98761234', 'email' : 'kabum@gmail.com'},//4
-        {'id' : 6, 'marca': 'Rayzer',     'telefone' : '011-98761234', 'email' : 'rayzer@gmail.com'}//5
+        { 'id': 1, 'marca': 'Logitech', 'telefone': '011-98761234', 'email': 'logitech@gmail.com' }, //0
+        { 'id': 2, 'marca': 'Redragon', 'telefone': '067-12398745', 'email': 'redragon@gmail.com' }, //1
+        { 'id': 3, 'marca': 'Dell', 'telefone': '033-43526798', 'email': 'dell@gmail.com' }, //2
+        { 'id': 4, 'marca': 'AllienWare', 'telefone': '011-09087421', 'email': 'allienware@gmail.com' },//3
+        { 'id': 5, 'marca': 'KBN', 'telefone': '011-98761234', 'email': 'kabum@gmail.com' },//4
+        { 'id': 6, 'marca': 'Rayzer', 'telefone': '011-98761234', 'email': 'rayzer@gmail.com' }//5
     ] // fecha marca
 
     let produtos = [
-        {   'id' : 1,
-            'nome' : 'Monitor',
-            'descricao' : 'Monitor de 27 Polegadas',
-            'valor' : 1500,
-            'quantidade' : 20,
-            'cor' : [
+        {
+            'id': 1,
+            'nome': 'Monitor',
+            'descricao': 'Monitor de 27 Polegadas',
+            'valor': 1500,
+            'quantidade': 20,
+            'cor': [
                 cores[0],
                 cores[1]
             ], // fecha cor
-            'marca' : [
+            'marca': [
                 marcas[1].marca
             ] // fecha marca
-            
+
         }, // fecha id 1
 
-        {   'id' : 2,
-            'nome' : 'Teclado',
-            'descricao' : 'Teclado mêcanico 60% ARBG',
-            'valor' : 500,
-            'quantidade' : 41,
-            'cor' : cores,
-            'marca' : [
+        {
+            'id': 2,
+            'nome': 'Teclado',
+            'descricao': 'Teclado mêcanico 60% ARBG',
+            'valor': 500,
+            'quantidade': 41,
+            'cor': cores,
+            'marca': [
                 marcas[3].marca,
                 marcas[5].marca,
                 marcas[1].marca
             ] // fecha marca
-            
+
         }, // fecha id 2
 
-        {   'id' : 3,
-            'nome' : 'Mouse',
-            'descricao' : 'Mouse 12000dpi RGB',
-            'valor' : 350,
-            'quantidade' : 587,
-            'cor' : [
+        {
+            'id': 3,
+            'nome': 'Mouse',
+            'descricao': 'Mouse 12000dpi RGB',
+            'valor': 350,
+            'quantidade': 587,
+            'cor': [
                 cores[0],
                 cores[1],
                 cores[3]
             ], // fecha cor
-            'marca' : [
+            'marca': [
                 marcas[5].marca,
                 marcas[4].marca,
                 marcas[1].marca,
                 marcas[2].marca
             ] // fecha marca
-            
+
         }, // fecha id 3
 
 
@@ -267,29 +270,66 @@ const cadastroDeProdutos = function () {
 
     console.log(produtos)
 
-    // Exibindo as cores de dentro do produto 'MONITOR//INDICE[0]'
-    
-    produtos.forEach(function(itemProduto){
+    produtos.forEach(function (itemProduto) {
         console.log(`
 Produto: ${itemProduto.nome}
 Qtde: ${itemProduto.quantidade}
-Valor: ${itemProduto.valor}`
-        )
-        itemProduto.cor.forEach(function(itemCor){
-           console.log(`Cor: ${itemCor.cor}`)
-        })
-        itemProduto.marca.forEach(function(itemMarca){
+Valor: R$${itemProduto.valor}`)
+
+        itemProduto.marca.forEach(function (itemMarca) {
             console.log(`Marca: ${itemMarca}`)
         })
+
+        itemProduto.cor.forEach(function (itemCor) {
+            console.log(`Cor: ${itemCor.cor}`)
+        })
+
     })
 
-    // Caso você queira buscar um item em especifico que esta dentro do ARRAY[indice].nomeAtributo 
-    //console.log(cores[2].cor)
+    // Filtrando produtos pelo nome
+    console.log('\n================================================')
+    console.log('Exemplo de como pesquisar produtos pelo **NOME**\n')
+    let nomeProduto = 'teclado'
+    
+    produtos.forEach(function(itemProduto){
+        if(String(nomeProduto).toUpperCase() == String(itemProduto.nome).toUpperCase()){
+            console.log(itemProduto)
+        }
+    })
+    console.log('================================================')
 
-    // Colocando somente as cores no terminal
-    //cores.forEach(function(itemCor) {
-    //   console.log(itemCor.cor)
-    //})
+    console.log('\n================================================')
+    console.log('Exemplo de como pesquisar produtos pela **COR**\n')
+    let nomeCor = 'preto'
+
+    produtos.forEach(function(produtoCor){
+
+        produtoCor.cor.forEach(function(itemCor){
+
+            if(String(nomeCor).toUpperCase() == String(itemCor.cor).toUpperCase()){
+                console.log(produtoCor)
+                console.log('================================================')
+            }
+        })
+    })
+    
+    
+    console.log('\n================================================')
+    console.log('Exemplo de como pesquisar produtos pela **MARCA**\n')
+    let nomeMarca = 'Rayzer'
+
+    produtos.forEach(function(produtoMarca){
+
+        produtoMarca.marca.forEach(function(itemMarca){
+
+            if(String(nomeMarca).toUpperCase() == String(itemMarca).toUpperCase()){
+                console.log(produtoMarca)
+                console.log('================================================')
+            }
+        })
+    })
+    
+
 
 }
 
