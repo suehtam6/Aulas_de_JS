@@ -20,7 +20,7 @@ function getListaDeEstados() {
         if (estadosSiglas == null) {
                 return false
         }
-        estadosSiglas = { uf, 'quantidade': uf.length }
+        estadosSiglas = {uf, 'quantidade': uf.length }
         return estadosSiglas
 
 }
@@ -54,14 +54,33 @@ function getDadosEstado(siglaUF) {
                 capital,
                 regiao
         }
-        console.log(dadosEstados)
-
-
+        return dadosEstados
 
 
 }
 
-getDadosEstado('ba')
+// Verificando os dados da capital de acordo com a UF
+function getCapitalEstado(siglaUF){
+        let buscarSigla = String(siglaUF).toUpperCase()
+        let uf
+        let descricao
+        let capital
+        let dados = [getDadosEstado(buscarSigla)]
+        let dadosCapital = {}
+
+        
 
 
+        dados.forEach(function(itensDados){
+                uf = itensDados.uf
+                descricao = itensDados.descricao
+                capital = itensDados.capital
+        })
+        dadosCapital = {uf, descricao, capital}
+        return dadosCapital
+        
+}
+
+//console.log(getCapitalEstado('Sp'))
+//getDadosEstado('ba')
 //console.log(getListaDeEstados())
