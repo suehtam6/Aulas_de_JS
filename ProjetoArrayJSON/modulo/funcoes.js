@@ -6,22 +6,23 @@
  **************************************************************************************/
 
 const estados = require('./estados_cidades')
+const estadosUF = estados.listaDeEstados.estados
 
+// Fazendo uma função para pegar as siglas dos estados(UF)
+function getListaDeEstados() {
+        let estadosSiglas = {}
+        let uf = []
 
-function getListaDeEstados(){
-    let siglaUF = 'SP'
-    let estadosUF = estados.listaDeEstados.estados
-    
-    estadosUF.forEach(function(itemUF){
-        if(siglaUF == itemUF.sigla)
-        console.log(`
-UF: ${itemUF.sigla}
-Descrição: ${itemUF.nome}
-Capital: ${itemUF.capital}
-Região: ${itemUF.regiao}
-`)
+        estadosUF.forEach(function (itemUF) {
+                uf.push(itemUF.sigla)
         })
-        
+
+        if (estadosSiglas == null) {
+                return false
+        }
+        estadosSiglas = { uf, 'quantidade': uf.length }
+        return estadosSiglas
+
 
 }
 
