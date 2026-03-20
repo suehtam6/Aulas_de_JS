@@ -20,34 +20,32 @@ function getListaDeEstados() {
         if (estadosSiglas == null) {
                 return false
         }
-        estadosSiglas = {uf, 'quantidade': uf.length }
+        estadosSiglas = { uf, 'quantidade': uf.length }
         return estadosSiglas
 
 }
 
+
+
 // Verificando os dados do estado de acordo com a UF
 function getDadosEstado(siglaUF) {
-
-        let buscarSigla = siglaUF
+        let buscarSigla = String(siglaUF).toUpperCase()
         let dadosEstados = {}
         let uf
         let descricao
         let capital
         let regiao
-
         estadosUF.forEach(function (itemUF) {
                 if (!buscarSigla) {
                         return false
                 }
-                if (String(buscarSigla).toUpperCase() == itemUF.sigla) {
+                if (buscarSigla == itemUF.sigla) {
                         uf = itemUF.sigla
                         descricao = itemUF.nome
                         capital = itemUF.capital
                         regiao = itemUF.regiao
                 }
-
         })
-
         dadosEstados = {
                 uf,
                 descricao,
@@ -55,32 +53,59 @@ function getDadosEstado(siglaUF) {
                 regiao
         }
         return dadosEstados
-
-
 }
 
+
+
 // Verificando os dados da capital de acordo com a UF
-function getCapitalEstado(siglaUF){
+function getCapitalEstado(siglaUF) {
         let buscarSigla = String(siglaUF).toUpperCase()
-        let uf
-        let descricao
-        let capital
         let dados = [getDadosEstado(buscarSigla)]
         let dadosCapital = {}
-
-        
-
-
-        dados.forEach(function(itensDados){
+        dados.forEach(function (itensDados) {
                 uf = itensDados.uf
                 descricao = itensDados.descricao
                 capital = itensDados.capital
         })
-        dadosCapital = {uf, descricao, capital}
+        dadosCapital = { uf, descricao, capital }
         return dadosCapital
-        
 }
 
-//console.log(getCapitalEstado('Sp'))
+
+function getEstadosRegiao(buscarRegiao) {
+        let estadoRegiao = {}
+        let regiaoMod = String(buscarRegiao).toUpperCase()
+        let regiao
+        let uf
+        let descricao
+        let estados = []
+        let jonson = {}
+        
+        estadosUF.forEach(function(itemRegiao){
+                
+                if(regiaoMod === String(itemRegiao.regiao).toUpperCase()){
+                        uf = itemRegiao.sigla
+                        descricao = itemRegiao.nome
+                        regiao = itemRegiao.regiao
+
+                        jonson = {
+                                uf, descricao
+                        }
+                        
+                        estados.push(jonson)
+                }
+
+                
+        })
+        
+        estadoRegiao = {
+                regiao,
+                estados
+        }
+       
+        return estadoRegiao
+}
+// console.log(getCapitalEstado('Sp'))
 //getDadosEstado('ba')
 //console.log(getListaDeEstados())
+console.log(getEstadosRegiao('sul'))
