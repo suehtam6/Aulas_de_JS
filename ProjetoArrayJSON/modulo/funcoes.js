@@ -86,13 +86,16 @@ function getEstadosRegiao(buscarRegiao) {
         return estadoRegiao
 }
 
+// FUNÇÃO PARA SABER QUAIS SÃO TODAS AS CAPITAIS QUE O BRASIL JA TEVE
 function getCapitalPais() {
 
         let capitalPais = {capitais : []}
 
         estadosUF.forEach(function(itemCapital){
                 if(itemCapital.capital_pais){
+
                         capitalPais.capitais.push({
+
                                 capital_atual : itemCapital.capital_pais.capital,
                                 uf : itemCapital.sigla,
                                 descricao : itemCapital.nome,
@@ -100,6 +103,7 @@ function getCapitalPais() {
                                 regiao : itemCapital.regiao,
                                 capital_pais_ano_inicio : itemCapital.capital_pais.ano_inicio,
                                 capital_pais_ano_fim : itemCapital.capital_pais.ano_fim
+
                         })
                 }
         })
@@ -107,9 +111,38 @@ function getCapitalPais() {
        
 }
 
+// FUNÇÃO PARA BUSCAR AS CIDADES DE CADA ESTADO
+function getCidades(sigla){
+        let resposta = {}
+        let cidade = []
+        let siglaUF = String(sigla).toUpperCase()
 
-//getCapitalEstado('Sp')
-//getDadosEstado('ba')
+        estadosUF.forEach(function(itemCidade){
+                if(siglaUF == String(itemCidade.sigla).toUpperCase()){
+                        resposta = {
+                                uf: itemCidade.sigla,
+                                descricao: itemCidade.nome,
+                                quantidade: itemCidade.cidades.length
+                                
+                        }
+
+                        itemCidade.cidades.forEach(function(cidadesEstado){
+                                cidades = cidadesEstado.nome
+                                cidade.push(cidades)
+                                
+                        })
+                        resposta.cidades = cidade
+                }
+
+
+        })
+
+        return resposta
+}
+
+//console.log(getCidades('ba'))
+//console.log(getCapitalEstado('Sp'))
+//console.log(getDadosEstado('ba'))
 //console.log(getListaDeEstados())
 //console.log(getEstadosRegiao('sudeste'))
 //console.log(getCapitalPais())
