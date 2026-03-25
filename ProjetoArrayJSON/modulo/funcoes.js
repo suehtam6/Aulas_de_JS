@@ -8,6 +8,8 @@
 const estados = require('./estados_cidades')
 const estadosUF = estados.listaDeEstados.estados
 
+
+
 // Fazendo uma função para pegar as siglas dos estados(UF)
 function getListaDeEstados() {
         let uf = []
@@ -17,6 +19,10 @@ function getListaDeEstados() {
         })
 
         estadosSiglas = { uf, 'quantidade': uf.length }
+
+        if(estadosSiglas == null){
+                return false
+        }
         return estadosSiglas
 
 }
@@ -32,23 +38,25 @@ function getDadosEstado(siglaUF) {
         estadosUF.forEach(function (itemUF) {
 
                 if (buscarSigla == itemUF.sigla) {
-                        uf = itemUF.sigla
-                        descricao = itemUF.nome
-                        capital = itemUF.capital
-                        regiao = itemUF.regiao
-                } else {
-                        return false
+                        dadosEstados = {
+                                uf: itemUF.sigla,
+                                descricao: itemUF.nome,
+                                capital: itemUF.capital,
+                                regiao: itemUF.regiao
+                        }
                 }
         })
-        dadosEstados = {
-                uf,
-                descricao,
-                capital,
-                regiao
+        
+
+        if(dadosEstados == null || buscarSigla == '' || buscarSigla == null || !isNaN(buscarSigla) || buscarSigla != dadosEstados.uf){
+                return false
+        }else{
+                return dadosEstados
         }
-        return dadosEstados
+        
 }
 
+// FALTA VALIDAR
 // Verificando os dados da capital de acordo com a UF
 function getCapitalEstado(siglaUF) {
         let buscarSigla = String(siglaUF).toUpperCase()
@@ -61,14 +69,17 @@ function getCapitalEstado(siglaUF) {
                                 descricao: itensDados.descricao,
                                 capital: itensDados.capital
                         }
-                } else {
-                        return false
-                }
+                } 
 
         })
-
-        return dadosCapital
+        if(dadosCapital == null || dados == '' || dados == null || !isNaN(dados)){
+                return false
+        }else{
+                return dadosCapital
+        }
+        
 }
+
 
 // verificando os dados de acordo com a região
 function getEstadosRegiao(buscarRegiao) {
@@ -78,9 +89,7 @@ function getEstadosRegiao(buscarRegiao) {
 
 
         estadosUF.forEach(function (itemRegiao) {
-                if (!isNaN(regiaoMod) || regiaoMod == '') {
-                        return false
-                }
+                
                 if(regiaoMod === String(itemRegiao.regiao).toUpperCase()) {
                         uf = itemRegiao.sigla
                         descricao = itemRegiao.nome
@@ -95,12 +104,13 @@ function getEstadosRegiao(buscarRegiao) {
                                 regiao: itemRegiao.regiao,
                                 estados
                         }
-                        return false
+                        
                 }
 
         })
 
-        if(estadoRegiao == null || regiaoMod == '' || regiaoMod == null || !isNaN(regiaoMod) ){
+        if(estadoRegiao == null || regiaoMod == '' ||
+                 regiaoMod == null || !isNaN(regiaoMod)){
                 return false
         }else{
                 return estadoRegiao
@@ -109,6 +119,10 @@ function getEstadosRegiao(buscarRegiao) {
         
 
 }
+
+
+
+//VALIDADOS
 
 // FUNÇÃO PARA SABER QUAIS SÃO TODAS AS CAPITAIS QUE O BRASIL JA TEVE
 function getCapitalPais() {
@@ -176,10 +190,10 @@ function getCidades(sigla) {
 }
 
 //console.log(getCidades('a'))
-//console.log(getCapitalEstado('sp'))
-//console.log(getDadosEstado('ba'))
+//console.log(getCapitalEstado(''))
+//console.log(getDadosEstado('SP'))
 //console.log(getListaDeEstados())
-console.log(getEstadosRegiao('sul'))
+//console.log(getEstadosRegiao('sul'))
 //console.log(getCapitalPais())
 
 
