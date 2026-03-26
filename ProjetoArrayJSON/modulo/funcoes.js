@@ -31,10 +31,6 @@ function getListaDeEstados() {
 function getDadosEstado(siglaUF) {
         let buscarSigla = String(siglaUF).toUpperCase()
         let dadosEstados = {}
-        let uf
-        let descricao
-        let capital
-        let regiao
         estadosUF.forEach(function (itemUF) {
 
                 if (buscarSigla == itemUF.sigla) {
@@ -48,7 +44,7 @@ function getDadosEstado(siglaUF) {
         })
         
 
-        if(dadosEstados == null || buscarSigla == '' || buscarSigla == null || !isNaN(buscarSigla) || buscarSigla != dadosEstados.uf){
+        if(dadosEstados == null || buscarSigla == '' ||  !isNaN(buscarSigla) || buscarSigla != dadosEstados.uf){
                 return false
         }else{
                 return dadosEstados
@@ -72,7 +68,7 @@ function getCapitalEstado(siglaUF) {
                 } 
 
         })
-        if(dadosCapital == null || dados == '' || dados == null || !isNaN(dados)){
+        if(dadosCapital == null || dados == '' || dados == null || !isNaN(dados) || dados.uf == dadosCapital.uf){
                 return false
         }else{
                 return dadosCapital
@@ -189,11 +185,22 @@ function getCidades(sigla) {
         
 }
 
-//console.log(getCidades('a'))
-//console.log(getCapitalEstado(''))
-//console.log(getDadosEstado('SP'))
 //console.log(getListaDeEstados())
+
+//console.log(getDadosEstado('sp'))
+
+//console.log(getCapitalEstado('ba'))
+
 //console.log(getEstadosRegiao('sul'))
+
 //console.log(getCapitalPais())
+
+//console.log(getCidades('a'))
+
+
+
+
+
+
 
 
