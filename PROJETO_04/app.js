@@ -36,13 +36,22 @@ const corsOptions = {
 // Aplica as configurações do CORS no app (EXPRESS)
 app.use(cors(corsOptions))
 
+const estadosCidades = require('./modulo/funcoes.js')
+
 // O GET é uma função de callback
+// Endpoint para listar os estados
 app.get('/estados', function(request, response){
-    response.json({"message" : "Testando a API de estados"})
+    let estado = estadosCidades.getListaDeEstados()
+    response.json(estado)
+    response.status(200) // Requisição bem-sucedida!!!
+})
+
+app.get('/cidades', function(request,response){
+    response.json({'message' : "Testando a API de cidades"})
     response.status(200)
 })
 
-// Fazendo a API ficar em estado de espera
+// Fazer um start na API (Aguardando requisição)
 app.listen(8080, function(){
     console.log('API aguardando novas requisições...')
 })
