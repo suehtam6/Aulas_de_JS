@@ -25,8 +25,24 @@ const cors      = require('cors')
 // Criando um objeto do express para criar a API
 const app = express()
 
+// Configurações do CORS da API
 const corsOptions = {
-    origin: ['*'] // É a origem da requisição da API
-    
+    origin: ['*'], //Configuração de origem da requisição(IP ou Dominio).
+    methods: 'GET', //Configuração dos verbos que serão utilizados na API.
+    allowedHeaders: ['Content-type', 'Authorization'] //Configurações de permissões.
+                    //Tipo de dados  //Autorização de acesso 
 }
 
+// Aplica as configurações do CORS no app (EXPRESS)
+app.use(cors(corsOptions))
+
+// O GET é uma função de callback
+app.get('/estados', function(request, response){
+    response.json({"message" : "Testando a API de estados"})
+    response.status(200)
+})
+
+// Fazendo a API ficar em estado de espera
+app.listen(8080, function(){
+    console.log('API aguardando novas requisições...')
+})
