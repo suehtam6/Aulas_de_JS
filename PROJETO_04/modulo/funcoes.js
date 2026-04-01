@@ -102,7 +102,6 @@ function getEstadosRegiao(buscarRegiao) {
                         }
 
                 }
-
         })
 
         if (estadoRegiao == null || regiaoMod == '' ||
