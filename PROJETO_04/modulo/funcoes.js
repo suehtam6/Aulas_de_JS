@@ -88,6 +88,7 @@ function getCapitalEstado(siglaUF) {
 function getEstadosRegiao(buscarRegiao) {
         let regiaoMod = String(buscarRegiao).toUpperCase()
         let estados = []
+        let estadoRegiao = {}
 
 
 
@@ -115,11 +116,10 @@ function getEstadosRegiao(buscarRegiao) {
                 }
         })
 
-        if (estadoRegiao == null || regiaoMod == '' ||
-                regiaoMod == null || !isNaN(regiaoMod)) {
-                return false
-        } else {
+        if (estadoRegiao.regiao !=null) {
                 return estadoRegiao
+        } else {
+                return false
         }
 
 
