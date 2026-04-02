@@ -46,11 +46,12 @@ const estadosCidades = require('./modulo/funcoes.js')
 app.get('/v1/senai/sigla/estado', function(request, response){
     let estado = estadosCidades.getListaDeEstados()
     if(estado){
-        response.json(estado)
         response.status(200) // Requisição bem-sucedida!!!
+        response.json(estado)
     }else{
+        response.status(404) 
         response.json({'message' : "Nenhum estado encontrado."})
-        response.status(404)  
+         
     }
     
 })
@@ -64,11 +65,11 @@ app.get('/v1/senai/dados/estado/:uf', function(request,response){
     let sigla = request.params.uf
     let estado = estadosCidades.getDadosEstado(sigla)
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }else{
-        response.json({'message' : "Nenhuma estado foi encotrado."})
         response.status(404)  
+        response.json({'message' : "Nenhuma estado foi encotrado."})
     }
     
 })
@@ -79,11 +80,11 @@ app.get('/v1/senai/capital/estado/:uf', function(request, response){
     let sigla = request.params.uf
     let estado = estadosCidades.getCapitalEstado(sigla)
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }else{
-        response.json({'message' : "Nenhuma capital encontrada."})
         response.status(404) 
+        response.json({'message' : "Nenhuma capital encontrada."})
     }
     
 })
@@ -93,11 +94,11 @@ app.get('/v1/senai/estado/regiao/:regiao', function(request, response){
     let regiao = request.params.regiao
     let estado = estadosCidades.getEstadosRegiao(regiao)
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }else{
-        response.json({'message' : "Nenhuma região encontrada."})
         response.status(404) 
+        response.json({'message' : "Nenhuma região encontrada."})
     }
 })
 
@@ -105,11 +106,11 @@ app.get('/v1/senai/estado/regiao/:regiao', function(request, response){
 app.get('/v1/senai/capital/pais/brasil', function(request, response){
     let estado = estadosCidades.getCapitalPais()
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }else{
-        response.json({'message' : 'Nenhuma capital antiga foi encontrada.'})
         response.status(404)
+        response.json({'message' : 'Nenhuma capital antiga foi encontrada.'})
     }
 })
 
@@ -118,11 +119,11 @@ app.get('/v1/senai/cidade/estado/:uf', function(request, response){
     let sigla = request.params.uf
     let estado = estadosCidades.getCidades(sigla)
     if(estado){
-        response.json(estado)
         response.status(200)
+        response.json(estado)
     }else{
-        response.json({'message' : 'Nenhuma cidade foi encontrada.'})
         response.status(404)
+        response.json({'message' : 'Nenhuma cidade foi encontrada.'})
     }
 })
 
