@@ -58,6 +58,8 @@ app.get('/v1/senai/sigla/estado', function(request, response){
 // Para criar uma variavel e obter uma url personalizada de acordo com o usuario,
 // deve-se ter " :(palavra) " e assim obter o resultado desejado
 // Fazendo o Endpoint de getDadosEstado
+// Como buscar a sigla ou palavra chave na API? -> request.params."uf"(deve ser a nome que vou colocar
+//  no final da minha url.
 app.get('/v1/senai/dados/estado/:uf', function(request,response){
     let sigla = request.params.uf
     let estado = estadosCidades.getDadosEstado(sigla)
@@ -100,7 +102,7 @@ app.get('/v1/senai/estado/regiao/:regiao', function(request, response){
 })
 
 // Fazendo o Endpoint da função getCapitalPais
-app.get('/v1/senai/capital/pais', function(request, response){
+app.get('/v1/senai/capital/pais/brasil', function(request, response){
     let estado = estadosCidades.getCapitalPais()
     if(estado){
         response.json(estado)
@@ -112,7 +114,7 @@ app.get('/v1/senai/capital/pais', function(request, response){
 })
 
 // Fazendo o Endpoint da função getCidades
-app.get('/v1/senai/cidade/:uf', function(request, response){
+app.get('/v1/senai/cidade/estado/:uf', function(request, response){
     let sigla = request.params.uf
     let estado = estadosCidades.getCidades(sigla)
     if(estado){
@@ -125,7 +127,7 @@ app.get('/v1/senai/cidade/:uf', function(request, response){
 })
 
 
-// Fazer um start na API (Aguardando requisição)
+// Faz um start na API (Aguardando requisição)
 app.listen(8080, function(){
     console.log('API aguardando novas requisições...')
 })

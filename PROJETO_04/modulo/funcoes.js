@@ -8,8 +8,6 @@
 const estados = require('./estados_cidades')
 const estadosUF = estados.listaDeEstados.estados
 
-
-
 // Fazendo uma função para pegar as siglas dos estados(UF)
 function getListaDeEstados() {
         let uf = []
@@ -52,7 +50,6 @@ function getDadosEstado(siglaUF) {
 
 }
 
-// FALTA VALIDAR
 // Verificando os dados da capital de acordo com a UF
 function getCapitalEstado(siglaUF) {
         let buscarSigla = String(siglaUF).toUpperCase()
@@ -75,7 +72,6 @@ function getCapitalEstado(siglaUF) {
         }
 
 }
-
 
 // verificando os dados de acordo com a região
 function getEstadosRegiao(buscarRegiao) {
@@ -114,9 +110,6 @@ function getEstadosRegiao(buscarRegiao) {
 
 
 }
-
-
-//VALIDADOS
 
 // FUNÇÃO PARA SABER QUAIS SÃO TODAS AS CAPITAIS QUE O BRASIL JA TEVE
 function getCapitalPais() {
